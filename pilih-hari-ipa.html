@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pilih Hari - Rombel IPA</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #fdfcfb, #e2d1c3);
+      color: #333;
+    }
+
+    .container {
+      max-width: 640px;
+      margin: auto;
+      background: #ffffff;
+      padding: 32px;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Wave dekoratif di sisi atas */
+    .container::before {
+      content: "";
+      position: absolute;
+      top: -40px; left: 0;
+      width: 100%; height: 80px;
+      background: linear-gradient(135deg, #1E90FF, #00BFFF);
+      clip-path: ellipse(75% 100% at 50% 0%);
+      z-index: 0;
+    }
+
+    /* Wave dekoratif di sisi bawah */
+    .container::after {
+      content: "";
+      position: absolute;
+      bottom: -40px; left: 0;
+      width: 100%; height: 80px;
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      clip-path: ellipse(75% 100% at 50% 100%);
+      z-index: 0;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      font-weight: 800;
+      color: #2c3e50;
+      position: relative;
+      z-index: 1;
+    }
+
+    #motivasi {
+      font-size: 14px;
+      font-style: italic;
+      margin: 16px auto;
+      padding: 12px;
+      background: #f9f9f9;
+      border-left: 4px solid #1E90FF;
+      border-radius: 10px;
+      max-width: 480px;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    #motivasi span {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      position: absolute;
+      width: 100%;
+      left: 0;
+    }
+    #motivasi span.active { opacity: 1; position: relative; }
+
+    .btn {
+      display: block;
+      margin: 14px auto;
+      padding: 16px;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn.aktif {
+      background: linear-gradient(135deg, #1E90FF, #00BFFF);
+      color: #fff;
+      box-shadow: 0 6px 16px rgba(30,144,255,0.3);
+    }
+    .btn.aktif:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(30,144,255,0.4);
+    }
+
+    .btn.nonaktif {
+      background: #e0e0e0;
+      color: #888;
+      cursor: not-allowed;
+    }
+
+    .footer {
+      margin-top: 32px;
+      font-size: 11px;
+      color: #777;
+      position: relative;
+      z-index: 1;
+    }
+    .footer .pkbm { font-weight: bold; color: #555; }
+    .footer .design { font-weight: bold; color: #a67c00; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Pilih Hari Ujian</h2>
+    <h2>Rombel IPA</h2>
+
+    <!-- Motivasi carousel -->
+    <div id="motivasi">
+      <span class="active">Setiap klik adalah langkah menuju masa depanmu ✨</span>
+      <span>Percaya diri adalah kunci keberhasilanmu 💪</span>
+      <span>Jangan takut mencoba, kamu luar biasa 🌟</span>
+      <span>Ujian ini adalah pintu menuju impianmu 🚪</span>
+      <span>Kerjakan dengan tenang, kamu sudah siap 🧠</span>
+    </div>
+
+    <!-- Daftar Hari -->
+    <div id="daftar-hari"></div>
+
+    <div class="footer">
+      <span class="pkbm">© PKBM Ristek Nusantara Jaya | TP 2025–2026</span><br>
+      <span class="design">Copyright By RNJ Cikarang</span>
+    </div>
+  </div>
+
+  <script>
+    // 🔗 LINK FILE SOAL
+    const linkHari = {
+      "Senin": "https://sites.google.com/view/cbtpc-aplication/senin-ipa",
+      "Selasa": "https://sites.google.com/view/cbtpc-aplication/selasa-ipa",
+      "Rabu": "https://sites.google.com/view/cbtpc-aplication/rabu-ipa",
+      "Kamis": "https://sites.google.com/view/cbtpc-aplication/kamis-ipa",
+    };
+
+    // ⏰ JADWAL JAM AKTIF PER HARI
+    const jadwalJam = {
+      "Senin": [6, 23],
+      "Selasa": [6, 23],
+      "Rabu": [6, 23],
+      "Kamis": [6, 23],
+    };
+
+    // 📌 SETTING HARI AKTIF
+    const hariAktif = ["Senin", "Selasa", "Rabu", "Kamis"]; 
+
+    const container = document.getElementById("daftar-hari");
+    const now = new Date();
+    const currentHour = now.getHours();
+
+    Object.keys(linkHari).forEach(hari => {
+      const [startHour, endHour] = jadwalJam[hari];
+      const aktif = (hariAktif.includes(hari)) && (currentHour >= startHour && currentHour <= endHour);
+
+      const tombol = document.createElement(aktif ? "a" : "div");
+      tombol.innerHTML = `📅 ${hari}<br><small>CBT aktif ${startHour}:00–${endHour}:00 WIB</small>`;
+      tombol.className = `btn ${aktif ? "aktif" : "nonaktif"}`;
+      if (aktif) tombol.href = linkHari[hari];
+      container.appendChild(tombol);
+    });
+
+    // ✨ MOTIVASI BERGANTI OTOMATIS
+    const motivasiSpans = document.querySelectorAll('#motivasi span');
+    let idx = 0;
+    setInterval(() => {
+      motivasiSpans[idx].classList.remove('active');
+      idx = (idx + 1) % motivasiSpans.length;
+      motivasiSpans[idx].classList.add('active');
+    }, 4000); // berganti tiap 4 detik
+  </script>
+</body>
+</html>
