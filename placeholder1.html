@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CBT RNJ Placeholder</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f4f6f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header {
+      background: linear-gradient(90deg, #0066cc, #0099ff);
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .loader {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #0066cc;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    h2 {
+      margin: 10px 0;
+      font-size: 1.5em;
+    }
+    p {
+      font-size: 1em;
+      color: #555;
+    }
+    .contact {
+      margin-top: 20px;
+      font-size: 0.95em;
+      color: #444;
+      background: #e6f2ff;
+      padding: 10px 15px;
+      border-radius: 6px;
+      border: 1px solid #b3d9ff;
+    }
+    .back-btn {
+      display: inline-block;
+      margin-top: 25px;
+      background: #0066cc;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .back-btn:hover { background: #004c99; }
+    footer {
+      background: #eee;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    CBT RNJ – Portal Ujian
+  </header>
+  <main>
+    <div class="loader"></div>
+    <h2>Mohon menunggu...</h2>
+    <p>Saat ini soal ujian sedang dalam proses pembuatan.</p>
+    <div class="contact">
+      Hubungi Admin RNJ Cikarang: <strong>Faisal Farid</strong>
+    </div>
+    <!-- Tombol kembali -->
+    <a href="index.html" class="back-btn">⬅️ Kembali ke Halaman Utama</a>
+  </main>
+  <footer>
+    © 2025 PKBM Ristek Nusantara Jaya
+  </footer>
+</body>
+</html>
