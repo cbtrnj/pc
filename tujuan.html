@@ -2,6 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tujuan CBT Ristek Nusantara Jaya</title>
   <style>
     body {
@@ -85,10 +86,14 @@
     }
     .back-btn:hover { background: #003f7f; }
 
+    /* Responsif untuk HP */
     @media (max-width: 600px) {
       header h1 { font-size: 1.4em; }
       header p { font-size: 0.85em; }
       h2 { font-size: 1.2em; }
+      .card-group { grid-template-columns: 1fr; }
+      .card { font-size: 0.9em; padding: 15px; }
+      .neon-bg { filter: blur(40px); height: 200px; top: 20%; }
     }
   </style>
 </head>
