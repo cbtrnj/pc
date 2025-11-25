@@ -1,32 +1,278 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CBT Profesional</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>CBT Ristek Nusantara Jaya</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      color: #25303b;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 24px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    /* Latar belakang foto laptop transparan */
+    .container::before {
+      content: "";
+      position: absolute; inset: 0;
+      background-image: url('https://cdn.pixabay.com/photo/2015/01/08/18/26/student-593358_1280.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.35;
+      z-index: 0;
+      filter: blur(1px);
+    }
+
+    /* Wave dekoratif */
+    .wave-top {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 180px;
+      background: linear-gradient(135deg, #2575FC, #6A11CB);
+      clip-path: ellipse(75% 100% at 50% 0%);
+      z-index: 0;
+      opacity: 0.9;
+    }
+    .wave-bottom {
+      position: absolute; bottom: 0; left: 0;
+      width: 100%; height: 180px;
+      background: linear-gradient(135deg, #FFD700, #FF6B6B);
+      clip-path: ellipse(75% 100% at 50% 100%);
+      z-index: 0;
+      opacity: 0.85;
+    }
+
+    /* Aurora hijau–biru laut */
+    .aurora {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 70%, rgba(102,255,204,0.25), transparent 70%),
+                  radial-gradient(circle at 70% 30%, rgba(102,204,255,0.25), transparent 70%);
+      animation: auroraMove 30s infinite alternate;
+      z-index: 0;
+      pointer-events: none;
+    }
+    @keyframes auroraMove {
+      from { transform: translateY(0) scale(1); }
+      to   { transform: translateY(-20px) scale(1.05); }
+    }
+
+    /* Bintang berkilau */
+    .stars { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+    .star { position: absolute; border-radius: 50%; }
+
+    @keyframes twinkle {
+      from { opacity: 0.2; transform: scale(1); }
+      to   { opacity: 1; transform: scale(1.6); }
+    }
+    @keyframes drift-right {
+      from { transform: translateX(0); }
+      to   { transform: translateX(20px); }
+    }
+    @keyframes drift-left {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-20px); }
+    }
+    @keyframes drift-updown {
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 100px 20px 40px;
+      background: rgba(255,255,255,0.85);
+      border-radius: 16px;
+    }
+
+    .logo { width: 90px; margin-bottom: 10px; }
+    h1 { font-size: 26px; margin: 6px 0; color: #1b2a41; }
+    h2 { font-size: 18px; margin-bottom: 16px; color: #4b5a6b; }
+
+    #motivasi {
+      font-size: 15px;
+      font-style: italic;
+      margin: 20px auto;
+      padding: 12px;
+      background: rgba(249,250,252,0.9);
+      border-left: 4px solid #FFD700;
+      border-radius: 8px;
+      max-width: 640px;
+      min-height: 34px;
+      position: relative;
+      overflow: hidden;
+    }
+    #motivasi span {
+      opacity: 0;
+      transition: opacity 0.9s ease-in-out;
+      position: absolute;
+      width: 100%;
+      left: 0;
+    }
+    #motivasi span.active { opacity: 1; position: relative; }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 10px;
+      border-radius: 10px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.25s ease;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+    .btn-primary { background: #2575FC; color: #fff; }
+    .btn-primary:hover {
+      background: #1E90FF;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(37,117,252,0.25);
+    }
+
+    .btn-icon {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: #FFD700;
+      color: #333;
+      font-weight: 700;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 6px 16px rgba(255,215,0,0.35);
+      transition: 0.25s ease;
+      font-size: 14px;
+    }
+    .btn-icon:hover {
+      background: #FFC107;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(255,215,0,0.45);
+    }
+    .btn-icon img { width: 20px; height: 20px; }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .footer {
+      margin-top: 22px;
+      font-size: 12px;
+      color: #555;
+    }
+    .footer .pkbm { font-weight: 700; color: #1b2a41; }
+    .footer .design { font-weight: 700; color: #a67c00; }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 20px; }
+      h2 { font-size: 14px; }
+      .btn { padding: 10px 18px; font-size: 14px; margin: 8px; }
+      .btn-icon { flex: 1 1 45%; justify-content: center; }
+      .content { padding: 92px 16px 32px; }
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <div class="wave-top"></div>
+    <div class="wave-bottom"></div>
+    <div class="aurora"></div>
+    <div class="stars" id="stars"></div>
 
-  <div class="cbt-container">
-    <header class="cbt-header">
-      <h1>Computer-Based Test</h1>
-      <p class="subtitle">Sekolah / Lembaga Anda</p>
-    </header>
+    <div class="content">
+      <img src="https://i.imgur.com/J1mKppg.png" alt="Logo PKBM Ristek Nusantara Jaya" class="logo" />
+      <h1>Computer Based Test</h1>
+      <h1>Ristek Nusantara Jaya</h1>
+      <h2>Semester Ganjil - Paket C</h2>
 
-    <div class="content-box">
-      <h2>Silakan Mengerjakan Soal</h2>
-
-      <!-- MASUKKAN GOOGLE FORM DI SINI -->
-      <div class="form-wrapper">
-        <iframe 
-          src="GOOGLE_FORM_LINK/embeddedform"
-          frameborder="0">
-        </iframe>
+      <div id="motivasi">
+        <span class="active">Kerjakan dengan tenang, percaya pada kemampuanmu.</span>
+        <span>Setiap soal adalah langkah menuju kesuksesan.</span>
+        <span>Jangan terburu-buru, fokus pada kualitas jawaban.</span>
+        <span>Ilmu yang kamu pelajari adalah bekal masa depan.</span>
+        <span>Percaya diri, kamu lebih hebat dari yang kamu kira.</span>
       </div>
 
+      <a href="https://docs.google.com/forms/d/e/REPLACE_FORM_ID/viewform" class="btn btn-primary">Mulai Ujian</a>
+
+            <div class="btn-group">
+        <a href="https://sites.google.com/view/cbtpc-aplication/tujuan-cbt" class="btn-icon">
+          <img src="https://img.icons8.com/ios-filled/50/goal.png" alt="" />
+          Tujuan CBT
+        </a>
+        <a href="https://sites.google.com/view/cbtpc-aplication/cara-mengerjakan" class="btn-icon">
+          <img src="https://img.icons8.com/ios-filled/50/edit-file.png" alt="" />
+          Cara Mengerjakan
+        </a>
+      </div>
+
+      <div class="footer">
+        <div class="pkbm">© PKBM Ristek Nusantara Jaya | TP 2025–2026</div>
+        <div class="design">Copyright By RNJ Cikarang</div>
+      </div>
     </div>
   </div>
 
+  <script>
+    // Bintang berkilauan dengan drift acak
+    const starsContainer = document.getElementById('stars');
+    const numStars = 40;
+    const colors = ['#ffffff', '#cce6ff', '#fffacd']; // putih, biru muda, kuning pucat
+
+    for (let i = 0; i < numStars; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+
+      // Ukuran acak: 3px sampai 8px
+      const size = 3 + Math.random() * 5;
+      star.style.width = size + 'px';
+      star.style.height = size + 'px';
+
+      // Warna acak
+      star.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+      // Pilih drift acak: horizontal atau vertikal
+      const driftAnimations = ['drift-updown', 'drift-left', 'drift-right'];
+      const driftDirection = driftAnimations[Math.floor(Math.random() * driftAnimations.length)];
+
+      // Durasi animasi acak
+      const twinkleDuration = (2 + Math.random() * 3) + 's';
+      const driftDuration = (15 + Math.random() * 10) + 's';
+
+      star.style.animation = `twinkle ${twinkleDuration} infinite alternate,
+                              ${driftDirection} ${driftDuration} infinite ease-in-out`;
+
+      starsContainer.appendChild(star);
+    }
+
+    // Motivasi berganti fade
+    const motivasiSpans = document.querySelectorAll('#motivasi span');
+    let idx = 0;
+    setInterval(() => {
+      motivasiSpans[idx].classList.remove('active');
+      idx = (idx + 1) % motivasiSpans.length;
+      motivasiSpans[idx].classList.add('active');
+    }, 4000); // tiap 7 detik berganti
+  </script>
 </body>
 </html>
