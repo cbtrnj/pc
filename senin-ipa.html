@@ -2,130 +2,116 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>CBT PAS - Hari Senin (IPA)</title>
+  <title>CBT PAS - Hari Senin</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f4f7fc;
       margin: 0;
-      padding: 0;
-      color: #333;
+      background: #f4f7fc;
       position: relative;
-      overflow-x: hidden;   /* matikan scroll kiri-kanan */
-      width: 100%;
-      max-width: 100vw;
-      box-sizing: border-box;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    /* Neon wave di tengah halaman */
-    .neon-bg {
-      position: absolute;
-      top: 30%;
-      left: -20%;
-      width: 140%;
-      height: 300px;
-      background: linear-gradient(135deg,
-        rgba(0,255,255,0.35),
-        rgba(30,144,255,0.35),
-        rgba(255,215,0,0.35));
-      filter: blur(60px);
-      transform: rotate(-10deg);
+    /* Aurora layers */
+    .aurora, .aurora2, .aurora3 {
+      position: fixed;
+      inset: 0;
       z-index: 0;
+      pointer-events: none;
     }
+    .aurora {
+      background: radial-gradient(circle at 30% 70%, rgba(102,255,204,0.7), transparent 70%),
+                  radial-gradient(circle at 70% 30%, rgba(102,204,255,0.7), transparent 70%);
+      animation: auroraRotate 15s linear infinite, auroraFade 5s ease-in-out infinite alternate;
+      filter: blur(14px);
+    }
+    .aurora2 {
+      background: radial-gradient(circle at 20% 80%, rgba(255,102,204,0.6), transparent 70%),
+                  radial-gradient(circle at 80% 20%, rgba(204,102,255,0.6), transparent 70%);
+      animation: auroraRotateReverse 18s linear infinite, auroraFade 6s ease-in-out infinite alternate;
+      filter: blur(16px);
+    }
+    .aurora3 {
+      background: radial-gradient(circle at 50% 90%, rgba(0,102,255,0.6), transparent 70%),
+                  radial-gradient(circle at 40% 10%, rgba(0,255,204,0.6), transparent 70%);
+      animation: auroraRotate 20s linear infinite, auroraFade 7s ease-in-out infinite alternate;
+      filter: blur(18px);
+    }
+
+    @keyframes auroraRotate { from { transform: rotate(0deg) scale(1); } to { transform: rotate(360deg) scale(1.05); } }
+    @keyframes auroraRotateReverse { from { transform: rotate(360deg) scale(1); } to { transform: rotate(0deg) scale(1.05); } }
+    @keyframes auroraFade { from { opacity: 0.4; } to { opacity: 0.9; } }
 
     header {
-      background: linear-gradient(135deg, #005baa, #003f7f);
+      background: #005baa;
       color: white;
-      padding: 24px;
+      padding: 14px;
       text-align: center;
-      border-bottom: 4px solid #ffc107;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border-bottom: 3px solid #ffc107;
       position: relative;
       z-index: 1;
-      width: 100%;
-      box-sizing: border-box;
     }
-    header h1 { font-size: 2em; margin: 0; font-weight: 800; }
-    header p { font-size: 1em; margin: 5px 0 0; }
+    header h1 { font-size: 1.6em; margin: 0; }
+    header p { margin: 3px 0 0; font-size: 0.9em; }
 
-    section {
-      padding: 20px;
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    h2 {
-      color: #005baa;
-      margin: 30px 0 20px;
-      font-size: 1.6em;
-      font-weight: 700;
-    }
+    section { padding: 14px; position: relative; z-index: 1; }
+    h2 { color: #005baa; margin-top: 24px; font-size: 1.2em; }
 
     .card-group {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* card lebih lebar */
-      gap: 20px;
-      width: 100%;
-      box-sizing: border-box;
+      display: flex; flex-wrap: wrap; gap: 12px;
     }
     .card {
-      border-radius: 14px;
-      padding: 22px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      color: #fff;
-      width: 100%;
-      box-sizing: border-box;
-      font-size: 1em;
+      background: white;
+      border: 1px solid #ddd;
+      border-left: 4px solid #005baa;
+      padding: 10px;
+      border-radius: 6px;
+      flex: 1 1 240px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 10px 24px rgba(0,0,0,0.15); }
-    .card h3 { margin-top: 0; font-size: 1.2em; font-weight: 700; }
+    .card h3 { margin-top: 0; color: #005baa; font-size: 1em; }
 
     .btn {
-      display: block;
-      background: rgba(255,255,255,0.9);
-      color: #333;
-      padding: 12px 18px;
-      margin-top: 10px;
-      border-radius: 8px;
+      display: inline-block;
+      background: #005baa;
+      color: white;
+      padding: 8px 12px;
+      margin: 4px 0;
+      border-radius: 5px;
       text-decoration: none;
       font-weight: bold;
-      text-align: center;
-      transition: background 0.3s ease;
-      font-size: 1.1em;
+      font-size: 0.9em;
     }
-    .btn:hover { background: #ffc107; color: #005baa; }
+    .btn:hover { background: #003f7f; }
 
     .pengawas {
-      font-size: 0.95em;
-      margin-top: 8px;
-      font-style: italic;
-      color: rgba(255,255,255,0.9);
+      font-size: 0.75em;
+      color: #555;
+      margin-top: -4px;
+      margin-bottom: 6px;
     }
 
-    /* Variasi warna card */
-    .card.bindo { background: linear-gradient(135deg, #1E90FF, #00BFFF); }
-    .card.kimia { background: linear-gradient(135deg, #43cea2, #185a9d); }
-    .card.matematika { background: linear-gradient(135deg, #8e2de2, #4a00e0); }
-    .card.seni { background: linear-gradient(135deg, #ff9966, #ff5e62); }
-
-    /* Responsif untuk HP */
-    @media (max-width: 600px) {
-      header h1 { font-size: 1.4em; }
-      header p { font-size: 0.9em; }
-      h2 { font-size: 1.3em; }
-      .card-group { grid-template-columns: 1fr; } /* satu kolom penuh */
-      .card { font-size: 1em; padding: 20px; }
-      .card h3 { font-size: 1.3em; }
-      .btn { width: 100%; font-size: 1.1em; }
+    footer {
+      text-align: center;
+      padding: 12px;
+      font-size: 10px;
+      color: #333;
+      background: rgba(255,255,255,0.85);
+      border-top: 2px solid #ffc107;
+      position: relative;
+      z-index: 1;
     }
+    footer .pkbm { font-weight: bold; color: #005baa; }
+    footer .design { font-weight: bold; color: #a67c00; }
   </style>
 </head>
 <body>
 
-<!-- Neon wave tengah -->
-<div class="neon-bg"></div>
+  <!-- Aurora background -->
+  <div class="aurora"></div>
+  <div class="aurora2"></div>
+  <div class="aurora3"></div>
 
 <header>
   <h1>CBT PAS - Hari Senin</h1>
@@ -136,23 +122,23 @@
 <section>
   <h2>🧑‍🎓 Kelas X</h2>
   <div class="card-group">
-    <div class="card bindo">
-      <h3>📘 09:00 - 10:00</h3>
+    <div class="card">
+      <h3>09:00 - 10:00</h3>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSfK4uYbkVdIdYg7rebRrR2ZM84Mq62KxhXsQeexc216Q5h7WA/viewform?usp=header" class="btn">Bahasa Indonesia</a>
       <p class="pengawas">Pengawas: Camera Aplication CBT</p>
     </div>
-    <div class="card kimia">
-      <h3>⚗️ 10:00 - 11:00</h3>
+    <div class="card">
+      <h3>10:00 - 11:00</h3>
       <a href="https://sites.google.com/view/cbtpc-aplication/placeholder" class="btn">Kimia</a>
       <p class="pengawas">Pengawas: Camera Aplication CBT</p>
     </div>
-    <div class="card matematika">
-      <h3>➗ 11:00 - 12:00</h3>
+    <div class="card">
+      <h3>11:00 - 12:00</h3>
       <a href="https://sites.google.com/view/cbtpc-aplication/placeholder" class="btn">Matematika Peminatan</a>
       <p class="pengawas">Pengawas: Camera Aplication CBT</p>
     </div>
-    <div class="card seni">
-      <h3>🎨 11:00 - 12:00</h3>
+    <div class="card">
+      <h3>11:00 - 12:00</h3>
       <a href="https://sites.google.com/view/cbtpc-aplication/placeholder" class="btn">Seni Budaya</a>
       <p class="pengawas">Pengawas: Camera Aplication CBT</p>
     </div>
@@ -162,23 +148,23 @@
 <section>
   <h2>🧑‍🎓 Kelas XI</h2>
   <div class="card-group">
-    <div class="card bindo">
-      <h3>📘 09:00 - 10:00</h3>
+    <div class="card">
+      <h3>09:00 - 10:00</h3>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSc0j9lHaSZ_mGX8bfa4umvxwGW5HisyPxhLGBgihppGAMdJtw/viewform?usp=header" class="btn">Bahasa Indonesia</a>
       <p class="pengawas">Pengawas: Asri Dewantoro</p>
     </div>
-    <div class="card kimia">
-      <h3>⚗️ 10:00 - 11:00</h3>
+    <div class="card">
+      <h3>10:00 - 11:00</h3>
       <a href="https://sites.google.com/view/cbtpc-aplication/placeholder" class="btn">Kimia</a>
       <p class="pengawas">Pengawas: Irma Tania</p>
     </div>
-    <div class="card matematika">
-      <h3>➗ 11:00 - 12:00</h3>
+    <div class="card">
+      <h3>11:00 - 12:00</h3>
       <a href="https://sites.google.com/view/cbtpc-aplication/placeholder" class="btn">Matematika Peminatan</a>
       <p class="pengawas">Pengawas: Vika Hidayati</p>
     </div>
-    <div class="card seni">
-      <h3>🎨 11:00 - 12:00</h3>
+    <div class="card">
+      <h3>11:00 - 12:00</h3>
       <a href="https://sites.google.com/view/cbtpc-aplication/placeholder" class="btn">Seni Budaya</a>
       <p class="pengawas">Pengawas: Sri Lestiana</p>
     </div>
@@ -188,25 +174,33 @@
 <section>
   <h2>🧑‍🎓 Kelas XII</h2>
   <div class="card-group">
-    <div class="card bindo">
-      <h3>📘 09:00 - 10:00</h3>
+        <div class="card">
+      <h3>09:00 - 10:00</h3>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSeFanOajjJb-ARIbrIrMOpegQvBdBDjsqz5QEnmWs6omWUz1Q/viewform?usp=header" class="btn">Bahasa Indonesia</a>
       <p class="pengawas">Pengawas: Asri Dewantoro</p>
     </div>
-    <div class="card kimia">
-      <h3>⚗️ 10:00 - 11:00</h3>
+    <div class="card">
+      <h3>10:00 - 11:00</h3>
       <a href="https://sites.google.com/view/cbtpc-aplication/placeholder" class="btn">Kimia</a>
       <p class="pengawas">Pengawas: Irma Tania</p>
     </div>
-    <div class="card matematika">
-      <h3>➗ 11:00 - 12:00</h3>
+    <div class="card">
+      <h3>11:00 - 12:00</h3>
       <a href="https://sites.google.com/view/cbtpc-aplication/placeholder" class="btn">Matematika Peminatan</a>
       <p class="pengawas">Pengawas: Vika Hidayati</p>
     </div>
-    <div class="card seni">
-      <h3>🎨 11:00 - 12:00</h3>
+    <div class="card">
+      <h3>11:00 - 12:00</h3>
       <a href="https://sites.google.com/view/cbtpc-aplication/placeholder" class="btn">Seni Budaya</a>
       <p class="pengawas">Pengawas: Sri Lestiana</p>
     </div>
   </div>
 </section>
+
+<footer>
+  <div class="pkbm">© PKBM Ristek Nusantara Jaya | TP 2025–2026</div>
+  <div class="design">Copyright By RNJ Cikarang</div>
+</footer>
+
+</body>
+</html>
