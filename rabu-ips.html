@@ -21,11 +21,22 @@
     section { padding:20px; position:relative; z-index:1; }
     h2 { color:#005baa; margin:30px 0 20px; font-size:1.4em; font-weight:700; }
 
-    /* Ubah grid jadi flex-wrap */
+    /* Flex grid untuk card */
     .card-group { display:flex; flex-wrap:wrap; gap:20px; }
-    .card { border-radius:14px; padding:18px; box-shadow:0 6px 16px rgba(0,0,0,0.08); transition:transform 0.3s ease, box-shadow 0.3s ease; color:#fff; flex:1 1 260px; }
+    .card {
+      border-radius:14px;
+      padding:20px;
+      box-shadow:0 6px 16px rgba(0,0,0,0.08);
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
+      color:#fff;
+      flex:1 1 260px;
+      min-height:180px; /* tinggi minimum seragam */
+    }
     .card:hover { transform:translateY(-5px); box-shadow:0 10px 24px rgba(0,0,0,0.15); }
     .card h3 { margin-top:0; font-size:1.1em; font-weight:700; }
+
+    /* Card agama lebih tinggi */
+    .card.agama { min-height:220px; }
 
     .btn { display:inline-block; background:rgba(255,255,255,0.9); color:#333; padding:10px 14px; margin-top:10px; border-radius:8px; text-decoration:none; font-weight:bold; transition:background 0.3s ease; }
     .btn:hover { background:#ffc107; color:#005baa; }
@@ -40,14 +51,25 @@
 
     /* Tombol agama */
     .agama-buttons { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
-    .agama-buttons a { flex:1 1 100px; background:rgba(255,255,255,0.9); color:#333; padding:8px 12px; border-radius:6px; text-decoration:none; font-weight:bold; transition:background 0.3s ease; }
+    .agama-buttons a {
+      flex:1 1 120px; /* tombol lebih lebar */
+      background:rgba(255,255,255,0.9);
+      color:#333;
+      padding:8px 12px;
+      border-radius:6px;
+      text-decoration:none;
+      font-weight:bold;
+      text-align:center;
+      transition:background 0.3s ease;
+    }
     .agama-buttons a:hover { background:#ffc107; color:#005baa; }
     .agama-buttons a.locked { background:#aaa; color:#eee; pointer-events:none; }
 
     /* Media query untuk HP */
     @media (max-width:600px) {
       .card-group { flex-direction:column; }
-      .card { flex:1 1 100%; font-size:0.95em; padding:16px; }
+      .card { flex:1 1 100%; font-size:0.95em; padding:16px; min-height:160px; }
+      .card.agama { min-height:200px; }
       .card h3 { font-size:1em; }
       .btn { width:100%; text-align:center; }
     }
@@ -103,11 +125,26 @@
 
 <!-- Kelas XII -->
 <section>
+ <!-- Kelas XII -->
+<section>
+ <!-- Kelas XII -->
+<section>
   <h2>🧑‍🎓 Kelas XII</h2>
   <div class="card-group">
-    <div class="card inggris"><h3>📘 09:00 - 10:00</h3><a id="btn-xiiips-inggris" href="#" class="btn">Bahasa Inggris</a><p class="pengawas">Pengawas: Asri Dewantoro</p></div>
-    <div class="card geografi"><h3>🌍 10:00 - 11:00</h3><a id="btn-xiiips-geografi" href="#" class="btn">Geografi</a><p class="pengawas">Pengawas: Irma Tania</p></div>
-    <div class="card agama"><h3>🙏 11:00 - 12:00</h3><p>Pendidikan Agama:</p> <p class="pengawas">Pengawas: Vika Hidayati</p>
+    <div class="card inggris">
+      <h3>📘 09:00 - 10:00</h3>
+      <a id="btn-xiiips-inggris" href="#" class="btn">Bahasa Inggris</a>
+      <p class="pengawas">Pengawas: Asri Dewantoro</p>
+    </div>
+    <div class="card geografi">
+      <h3>🌍 10:00 - 11:00</h3>
+      <a id="btn-xiiips-geografi" href="#" class="btn">Geografi</a>
+      <p class="pengawas">Pengawas: Irma Tania</p>
+    </div>
+    <div class="card agama">
+      <h3>🙏 11:00 - 12:00</h3>
+      <p>Pendidikan Agama:</p>
+      <p class="pengawas">Pengawas: Vika Hidayati</p>
       <div class="agama-buttons">
         <a id="btn-xiiips-agama-islam" href="#">Islam</a>
         <a id="btn-xiiips-agama-kristen" href="#">Kristen</a>
