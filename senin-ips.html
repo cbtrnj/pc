@@ -2,6 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CBT PAS - Hari Senin</title>
   <style>
     body {
@@ -38,6 +39,9 @@
       position: relative;
       z-index: 1;
     }
+    section:last-of-type {
+      padding-bottom: 60px;
+    }
     h2 {
       color: #005baa;
       margin-top: 40px;
@@ -72,7 +76,9 @@
       text-decoration: none;
       font-weight: bold;
     }
-    .btn:hover { background: #003f7f; }
+    .btn:hover {
+      background: #003f7f;
+    }
     .pengawas {
       font-size: 0.85em;
       color: #555;
@@ -108,11 +114,21 @@
     @keyframes auroraRotate { from { transform: rotate(0deg) scale(1); } to { transform: rotate(360deg) scale(1.05); } }
     @keyframes auroraRotateReverse { from { transform: rotate(360deg) scale(1); } to { transform: rotate(0deg) scale(1.05); } }
     @keyframes auroraFade { from { opacity: 0.4; } to { opacity: 0.9; } }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #555;
+      background: rgba(255,255,255,0.85);
+      border-top: 2px solid #ffc107;
+      position: relative;
+      z-index: 1;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Layer aurora -->
   <div class="aurora"></div>
   <div class="aurora2"></div>
   <div class="aurora3"></div>
@@ -180,10 +196,10 @@
   <div class="card-group">
     <div class="card">
       <h3>09:00 - 10:00</h3>
-       <a href="https://docs.google.com/forms/d/e/1FAIpQLSeFanOajjJb-ARIbrIrMOpegQvBdBDjsqz5QEnmWs6omWUz1Q/viewform?usp=header" class="btn">Bahasa Indonesia</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeFanOajjJb-ARIbrIrMOpegQvBdBDjsqz5QEnmWs6omWUz1Q/viewform?usp=header" class="btn">Bahasa Indonesia</a>
       <p class="pengawas">Pengawas: Asri Dewantoro</p>
     </div>
-        <div class="card">
+    <div class="card">
       <h3>10:00 - 11:00</h3>
       <a href="https://sites.google.com/view/cbtpc-aplication/placeholder" class="btn">Ekonomi</a>
       <p class="pengawas">Pengawas: Irma Tania</p>
@@ -200,6 +216,11 @@
     </div>
   </div>
 </section>
+
+<footer>
+  © PKBM Ristek Nusantara Jaya | TP 2025–2026<br>
+  Desain oleh RNJ Cikarang
+</footer>
 
 </body>
 </html>
