@@ -11,7 +11,40 @@
       padding: 20px;
       background: linear-gradient(135deg, #fdfcfb, #e2d1c3);
       color: #333;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
+
+    /* Aurora layers */
+    .aurora, .aurora2, .aurora3 {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .aurora {
+      background: radial-gradient(circle at 30% 70%, rgba(102,255,204,0.8), transparent 70%),
+                  radial-gradient(circle at 70% 30%, rgba(102,204,255,0.8), transparent 70%);
+      animation: auroraRotate 8s linear infinite, auroraFade 4s ease-in-out infinite alternate;
+      filter: blur(15px);
+    }
+    .aurora2 {
+      background: radial-gradient(circle at 20% 80%, rgba(255,102,204,0.7), transparent 70%),
+                  radial-gradient(circle at 80% 20%, rgba(204, 102, 255, 0.772), transparent 70%);
+      animation: auroraRotateReverse 10s linear infinite, auroraFade 3s ease-in-out infinite alternate;
+      filter: blur(18px);
+    }
+    .aurora3 {
+      background: radial-gradient(circle at 50% 90%, rgba(0,102,255,0.7), transparent 70%),
+                  radial-gradient(circle at 40% 10%, rgba(0, 255, 204, 0.749), transparent 70%);
+      animation: auroraRotate 8s linear infinite, auroraFade 3s ease-in-out infinite alternate;
+      filter: blur(20px);
+    }
+
+    @keyframes auroraRotate { from { transform: rotate(0deg) scale(1); } to { transform: rotate(360deg) scale(1.05); } }
+    @keyframes auroraRotateReverse { from { transform: rotate(360deg) scale(1); } to { transform: rotate(0deg) scale(1.05); } }
+    @keyframes auroraFade { from { opacity: 0.4; } to { opacity: 0.9; } }
 
     .container {
       max-width: 640px;
@@ -23,6 +56,7 @@
       text-align: center;
       position: relative;
       overflow: hidden;
+      z-index: 1; /* konten di atas aurora */
     }
 
     /* Wave dekoratif di sisi atas */
@@ -119,6 +153,11 @@
   </style>
 </head>
 <body>
+  <!-- Aurora background -->
+  <div class="aurora"></div>
+  <div class="aurora2"></div>
+  <div class="aurora3"></div>
+
   <div class="container">
     <h2>Pilih Hari Ujian</h2>
     <h2>Rombel IPA</h2>
@@ -183,7 +222,7 @@
       motivasiSpans[idx].classList.remove('active');
       idx = (idx + 1) % motivasiSpans.length;
       motivasiSpans[idx].classList.add('active');
-    }, 4000); // berganti tiap 4 detik
+    }, 3000); // berganti tiap 3 detik
   </script>
 </body>
 </html>
