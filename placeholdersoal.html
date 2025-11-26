@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>CBT PAS - Placeholder</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f7fc;
+      margin: 0;
+      color: #333;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2em;
+      color: #005baa;
+      margin-bottom: 10px;
+      z-index: 1;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #444;
+      margin: 5px 0;
+      z-index: 1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #555;
+      background: rgba(255,255,255,0.85);
+      border-top: 2px solid #ffc107;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      margin-top: auto;
+    }
+
+    /* Aurora background */
+    .aurora, .aurora2, .aurora3 {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .aurora {
+      background: radial-gradient(circle at 30% 70%, rgba(102,255,204,0.7), transparent 70%),
+                  radial-gradient(circle at 70% 30%, rgba(102,204,255,0.7), transparent 70%);
+      animation: auroraRotate 15s linear infinite, auroraFade 5s ease-in-out infinite alternate;
+      filter: blur(15px);
+    }
+    .aurora2 {
+      background: radial-gradient(circle at 20% 80%, rgba(255,102,204,0.6), transparent 70%),
+                  radial-gradient(circle at 80% 20%, rgba(204,102,255,0.6), transparent 70%);
+      animation: auroraRotateReverse 18s linear infinite, auroraFade 6s ease-in-out infinite alternate;
+      filter: blur(18px);
+    }
+    .aurora3 {
+      background: radial-gradient(circle at 50% 90%, rgba(0,102,255,0.6), transparent 70%),
+                  radial-gradient(circle at 40% 10%, rgba(0,255,204,0.6), transparent 70%);
+      animation: auroraRotate 20s linear infinite, auroraFade 7s ease-in-out infinite alternate;
+      filter: blur(20px);
+    }
+    @keyframes auroraRotate { from {transform:rotate(0deg) scale(1);} to {transform:rotate(360deg) scale(1.05);} }
+    @keyframes auroraRotateReverse { from {transform:rotate(360deg) scale(1);} to {transform:rotate(0deg) scale(1.05);} }
+    @keyframes auroraFade { from {opacity:0.4;} to {opacity:0.9;} }
+  </style>
+</head>
+<body>
+
+<div class="aurora"></div>
+<div class="aurora2"></div>
+<div class="aurora3"></div>
+
+<h1>Soal dibagikan secara langsung</h1>
+<p>Silahkan Hubungi Pengawas Ujian</p>
+
+<footer>
+  © PKBM Ristek Nusantara Jaya | TP 2025–2026<br>
+  Desain oleh RNJ Cikarang
+</footer>
+
+</body>
+</html>
