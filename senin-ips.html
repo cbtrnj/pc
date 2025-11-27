@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CBT PAS - Hari Rabu (IPS)</title>
+  <title>CBT PAS - Hari Senin (IPS)</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -94,9 +94,16 @@
     @keyframes auroraRotateReverse { from { transform: rotate(360deg) scale(1); } to { transform: rotate(0deg) scale(1.05); } }
     @keyframes auroraFade { from { opacity: 0.4; } to { opacity: 0.9; } }
 
-    /* Daftar agama vertikal */
-    .agama-list { list-style: none; padding: 0; margin-top: 12px; }
-    .agama-list li { margin-bottom: 8px; }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #555;
+      background: rgba(255,255,255,0.85);
+      border-top: 2px solid #ffc107;
+      position: relative;
+      z-index: 1;
+    }
   </style>
 </head>
 <body>
@@ -106,95 +113,85 @@
   <div class="aurora3"></div>
 
 <header>
-  <h1>CBT PAS - Hari Rabu (IPS)</h1>
+  <h1>CBT PAS - Hari Senin (IPS)</h1>
   <p>PKBM Ristek Nusantara Jaya</p>
   <p>Tahun Pelajaran 2025/2026</p>
 </header>
 
-<!-- Kelas X -->
 <section>
   <h2>🧑‍🎓 Kelas X</h2>
   <div class="card-group">
     <div class="card">
       <h3>09:00 - 10:00</h3>
-      <a id="btn-xips-inggris" href="#" class="btn">Bahasa Inggris</a>
+      <a id="btn-xips-indonesia" href="#" class="btn">Bahasa Indonesia</a>
       <p class="pengawas">Pengawas: Camera Application CBT</p>
     </div>
     <div class="card">
       <h3>10:00 - 11:00</h3>
-      <a id="btn-xips-geografi" href="#" class="btn">Geografi</a>
+      <a id="btn-xips-ekonomi" href="#" class="btn">Ekonomi</a>
       <p class="pengawas">Pengawas: Camera Application CBT</p>
     </div>
     <div class="card">
       <h3>11:00 - 12:00</h3>
-      <p>Pendidikan Agama:</p>
+      <a id="btn-xips-sejarah" href="#" class="btn">Sejarah Peminatan</a>
       <p class="pengawas">Pengawas: Camera Application CBT</p>
-      <ul class="agama-list">
-        <li><a id="btn-xips-agama-islam" href="#" class="btn">Islam</a></li>
-        <li><a id="btn-xips-agama-kristen" href="#" class="btn">Kristen</a></li>
-        <li><a id="btn-xips-agama-katolik" href="#" class="btn">Katolik</a></li>
-        <li><a id="btn-xips-agama-hindu" href="#" class="btn">Hindu</a></li>
-        <li><a id="btn-xips-agama-budha" href="#" class="btn">Budha</a></li>
-      </ul>
+    </div>
+    <div class="card">
+      <h3>12:00 - 13:00</h3>
+      <a id="btn-xips-seni" href="#" class="btn">Seni Budaya</a>
+      <p class="pengawas">Pengawas: Camera Application CBT</p>
     </div>
   </div>
 </section>
 
-<!-- Kelas XI -->
 <section>
   <h2>🧑‍🎓 Kelas XI</h2>
   <div class="card-group">
     <div class="card">
       <h3>09:00 - 10:00</h3>
-      <a id="btn-xiips-inggris" href="#" class="btn">Bahasa Inggris</a>
-      <p class="pengawas">Pengawas: Arif Darwanto</p>
+      <a id="btn-xiips-indonesia" href="#" class="btn">Bahasa Indonesia</a>
+      <p class="pengawas">Pengawas: Asri Dewantoro</p>
     </div>
     <div class="card">
       <h3>10:00 - 11:00</h3>
-      <a id="btn-xiips-geografi" href="#" class="btn">Geografi</a>
+      <a id="btn-xiips-ekonomi" href="#" class="btn">Ekonomi</a>
       <p class="pengawas">Pengawas: Irma Tania</p>
     </div>
     <div class="card">
       <h3>11:00 - 12:00</h3>
-      <p>Pendidikan Agama:</p>
+      <a id="btn-xiips-sejarah" href="#" class="btn">Sejarah Peminatan</a>
       <p class="pengawas">Pengawas: Vika Hidayati</p>
-      <ul class="agama-list">
-        <li><a id="btn-xiips-agama-islam" href="#" class="btn">Islam</a></li>
-        <li><a id="btn-xiips-agama-kristen" href="#" class="btn">Kristen</a></li>
-        <li><a id="btn-xiips-agama-katolik" href="#" class="btn">Katolik</a></li>
-        <li><a id="btn-xiips-agama-hindu" href="#" class="btn">Hindu</a></li>
-        <li><a id="btn-xiips-agama-budha" href="#" class="btn">Budha</a></li>
-      </ul>
+    </div>
+    <div class="card">
+      <h3>12:00 - 13:00</h3>
+      <a id="btn-xiips-seni" href="#" class="btn">Seni Budaya</a>
+      <p class="pengawas">Pengawas: Sri Lestiana</p>
     </div>
   </div>
 </section>
 
-<!-- Kelas XII -->
 <section>
   <h2>🧑‍🎓 Kelas XII</h2>
   <div class="card-group">
     <div class="card">
-          <div class="card">
       <h3>09:00 - 10:00</h3>
-      <a id="btn-xiiips-inggris" href="#" class="btn">Bahasa Inggris</a>
-      <p class="pengawas">Pengawas: Arif Darwanto</p>
+      <a id="btn-xiiips-indonesia" href="#" class="btn">Bahasa Indonesia</a>
+      <p class="pengawas">Pengawas: Asri Dewantoro</p>
     </div>
     <div class="card">
       <h3>10:00 - 11:00</h3>
-      <a id="btn-xiiips-geografi" href="#" class="btn">Geografi</a>
+      <a id="btn-xiiips-ekonomi" href="#" class="btn">Ekonomi</a>
       <p class="pengawas">Pengawas: Irma Tania</p>
     </div>
-    <div class="card">
+        <div class="card">
       <h3>11:00 - 12:00</h3>
-      <p>Pendidikan Agama:</p>
+      <a id="btn-xiiips-sejarah" href="#" class="btn">Sejarah Peminatan</a>
       <p class="pengawas">Pengawas: Vika Hidayati</p>
-      <ul class="agama-list">
-        <li><a id="btn-xiiips-agama-islam" href="#" class="btn">Islam</a></li>
-        <li><a id="btn-xiiips-agama-kristen" href="#" class="btn">Kristen</a></li>
-        <li><a id="btn-xiiips-agama-katolik" href="#" class="btn">Katolik</a></li>
-        <li><a id="btn-xiiips-agama-hindu" href="#" class="btn">Hindu</a></li>
-        <li><a id="btn-xiiips-agama-budha" href="#" class="btn">Budha</a></li>
-      </ul>
+    </div>
+    <div class="card">
+      <h3>12:00 - 13:00</h3>
+      <a id="btn-xiiips-seni" href="#" class="btn">Seni Budaya</a>
+      <p class="pengawas">Pengawas: Sri Lestiana</p>
     </div>
   </div>
 </section>
@@ -207,29 +204,20 @@
 <script>
   // daftar pengaturan soal: true = terkunci, false = terbuka
   const soalSettings = {
-    "btn-xips-inggris": false,
-    "btn-xips-geografi": true,
-    "btn-xips-agama-islam": true,
-    "btn-xips-agama-kristen": true,
-    "btn-xips-agama-katolik": true,
-    "btn-xips-agama-hindu": true,
-    "btn-xips-agama-budha": true,
+    "btn-xips-indonesia": false,
+    "btn-xips-ekonomi": false,
+    "btn-xips-sejarah": true,
+    "btn-xips-seni": true,
 
-    "btn-xiips-inggris": false,
-    "btn-xiips-geografi": true,
-    "btn-xiips-agama-islam": true,
-    "btn-xiips-agama-kristen": true,
-    "btn-xiips-agama-katolik": true,
-    "btn-xiips-agama-hindu": true,
-    "btn-xiips-agama-budha": true,
+    "btn-xiips-indonesia": false,
+    "btn-xiips-ekonomi": false,
+    "btn-xiips-sejarah": true,
+    "btn-xiips-seni": true,
 
-    "btn-xiiips-inggris": false,
-    "btn-xiiips-geografi": true,
-    "btn-xiiips-agama-islam": true,
-    "btn-xiiips-agama-kristen": true,
-    "btn-xiiips-agama-katolik": true,
-    "btn-xiiips-agama-hindu": true,
-    "btn-xiiips-agama-budha": true
+    "btn-xiiips-indonesia": false,
+    "btn-xiiips-ekonomi": false,
+    "btn-xiiips-sejarah": true,
+    "btn-xiiips-seni": true
   };
 
   function applySettings() {
@@ -249,6 +237,7 @@
     });
   }
 
+  // jalankan saat halaman dibuka
   applySettings();
 </script>
 
