@@ -1,20 +1,18 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>CBT PAS - Hari Kamis (IPA)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CBT PAS - Hari Kamis </title>
   <style>
-    body { font-family:'Segoe UI',sans-serif; background:#f4f7fc; margin:0; color:#333; min-height:100vh; overflow-x:hidden; }
-
-    header { background:linear-gradient(135deg,#005baa,#003f7f); color:white; padding:24px; text-align:center;
-             border-bottom:4px solid #ffc107; box-shadow:0 4px 12px rgba(0,0,0,0.15); position:relative; z-index:1; }
-    header h1 { font-size:2em; margin:0; font-weight:800; }
-    header p { margin:5px 0 0; }
-
+    body { font-family:'Segoe UI',sans-serif; background:#f4f7fc; margin:0; position:relative; min-height:100vh; overflow-x:hidden; }
+    header { background:#005baa; color:white; padding:20px; text-align:center; border-bottom:4px solid #ffc107; position:relative; z-index:1; }
+    header h1 { font-size:2em; margin:0; }
+    header p { font-size:1em; margin:5px 0 0; }
+    @media(max-width:600px){ header h1{font-size:1.4em;} header p{font-size:0.85em;} }
     section { padding:20px; position:relative; z-index:1; }
-    h2 { color:#005baa; margin:30px 0 20px; font-size:1.4em; font-weight:700; }
-
-    /* Ubah grid jadi flex-wrap */
+    h2 { color:#005baa; margin-top:40px; }
     .card-group { display:flex; flex-wrap:wrap; gap:20px; }
     .card { border-radius:14px; padding:18px; box-shadow:0 6px 16px rgba(0,0,0,0.08); transition:transform 0.3s ease, box-shadow 0.3s ease; color:#fff; flex:1 1 260px; }
     .card:hover { transform:translateY(-5px); box-shadow:0 10px 24px rgba(0,0,0,0.15); }
@@ -26,29 +24,22 @@
 
     .pengawas { font-size:0.85em; margin-top:8px; font-style:italic; color:rgba(255,255,255,0.9); }
 
-    /* Variasi warna card */
-    .card.ppkn { background:linear-gradient(135deg,#1E90FF,#00BFFF); }
-    .card.pjok { background:linear-gradient(135deg,#43cea2,#185a9d); }
-    .card.prakarya { background:linear-gradient(135deg,#ff9966,#ff5e62); }
+    /* Warna kotak matpel IPA */
+    .card.indonesia { background:linear-gradient(135deg,#ff512f,#f09819); }
+    .card.kimia     { background:linear-gradient(135deg,#43cea2,#185a9d); }
+    .card.fisika    { background:linear-gradient(135deg,#1E90FF,#00BFFF); }
+    .card.seni      { background:linear-gradient(135deg,#f7971e,#ffd200); }
 
     /* Aurora background */
     .aurora,.aurora2,.aurora3{position:fixed;inset:0;z-index:0;pointer-events:none;}
-    .aurora{background:radial-gradient(circle at 30% 70%,rgba(102,255,204,0.7),transparent 70%),radial-gradient(circle at 70% 30%,rgba(102,204,255,0.7),transparent 70%);animation:auroraRotate 3s linear infinite,auroraFade 5s ease-in-out infinite alternate;filter:blur(15px);}
-    .aurora2{background:radial-gradient(circle at 20% 80%,rgba(255,102,204,0.6),transparent 70%),radial-gradient(circle at 80% 20%,rgba(204,102,255,0.6),transparent 70%);animation:auroraRotateReverse 5s linear infinite,auroraFade 6s ease-in-out infinite alternate;filter:blur(18px);}
-    .aurora3{background:radial-gradient(circle at 50% 90%,rgba(0,102,255,0.6),transparent 70%),radial-gradient(circle at 40% 10%,rgba(0,255,204,0.6),transparent 70%);animation:auroraRotate 7s linear infinite,auroraFade 7s ease-in-out infinite alternate;filter:blur(20px);}
+    .aurora{background:radial-gradient(circle at 30% 70%,rgba(102,255,204,0.7),transparent 70%),radial-gradient(circle at 70% 30%,rgba(102,204,255,0.7),transparent 70%);animation:auroraRotate 15s linear infinite,auroraFade 5s ease-in-out infinite alternate;filter:blur(15px);}
+    .aurora2{background:radial-gradient(circle at 20% 80%,rgba(255,102,204,0.6),transparent 70%),radial-gradient(circle at 80% 20%,rgba(204,102,255,0.6),transparent 70%);animation:auroraRotateReverse 18s linear infinite,auroraFade 6s ease-in-out infinite alternate;filter:blur(18px);}
+    .aurora3{background:radial-gradient(circle at 50% 90%,rgba(0,102,255,0.6),transparent 70%),radial-gradient(circle at 40% 10%,rgba(0,255,204,0.6),transparent 70%);animation:auroraRotate 20s linear infinite,auroraFade 7s ease-in-out infinite alternate;filter:blur(20px);}
     @keyframes auroraRotate{from{transform:rotate(0deg) scale(1);}to{transform:rotate(360deg) scale(1.05);}}
     @keyframes auroraRotateReverse{from{transform:rotate(360deg) scale(1);}to{transform:rotate(0deg) scale(1.05);}}
     @keyframes auroraFade{from{opacity:0.4;}to{opacity:0.9;}}
 
-    /* Media query untuk HP */
-    @media (max-width:600px) {
-      .card-group { flex-direction:column; }
-      .card { flex:1 1 100%; font-size:0.95em; padding:16px; }
-      .card h3 { font-size:1em; }
-      .btn { width:100%; text-align:center; }
-    }
-
-    footer { text-align:center; padding:20px; font-size:12px; color:#555; background:rgba(255,255,255,0.85); border-top:2px solid #ffc107; position:relative; z-index:1; }
+    footer{text-align:center;padding:20px;font-size:12px;color:#555;background:rgba(255,255,255,0.85);border-top:2px solid #ffc107;position:relative;z-index:1;}
   </style>
 </head>
 <body>
@@ -56,68 +47,77 @@
 <div class="aurora"></div><div class="aurora2"></div><div class="aurora3"></div>
 
 <header>
-  <h1>CBT PAS - Hari Kamis (IPA)</h1>
+  <h1>CBT PAS - Hari Kamis </h1>
   <p>PKBM Ristek Nusantara Jaya</p>
   <p>Tahun Pelajaran 2025/2026</p>
 </header>
 
-<!-- Kelas X -->
 <section>
-  <h2>🧑‍🎓 Kelas X</h2>
+  <h2>🧑‍🎓 Kelas X </h2>
   <div class="card-group">
-    <div class="card ppkn"><h3>09:00 - 10:00</h3><a id="btn-x-ppkn" href="https://docs.google.com/forms/d/e/1FAIpQLSfbjPVCniWpl6vWXYNYZT4ow05WbEhYshRMRdaPMegcWA3-nA/viewform?usp=header" class="btn">PPKN</a><p class="pengawas">Pengawas: Camera Aplication CBT</p></div>
-    <div class="card pjok"><h3>10:00 - 11:00</h3><a id="btn-x-pjok" href="pjok-x.html" class="btn">PJOK</a><p class="pengawas">Pengawas: Camera Aplication CBT</p></div>
-    <div class="card prakarya"><h3>11:00 - 12:00</h3><a id="btn-x-prakarya" href="prakarya-x.html" class="btn">Prakarya</a><p class="pengawas">Pengawas: Camera Aplication CBT</p></div>
+    <div class="card indonesia"><h3>09:00 - 10:00</h3><a id="btn-xipa-indonesia" href="https://docs.google.com/forms/d/e/1FAIpQLSfbjPVCniWpl6vWXYNYZT4ow05WbEhYshRMRdaPMegcWA3-nA/viewform?usp=header" class="btn">PPKN</a><p class="pengawas">Pengawas: Camera Aplication CBT</p></div>
+    <div class="card kimia"><h3>10:00 - 11:00</h3><a id="btn-xipa-kimia" href="#" class="btn">PJOK</a><p class="pengawas">Pengawas: Camera Aplication CBT</p></div>
+    <div class="card seni"><h3>12:00 - 13:00</h3><a id="btn-xipa-seni" href="https://docs.google.com/forms/d/e/1FAIpQLSf5Ngz-c_Mc2W_JGxs90oVKgNeeRbGXC2Dt1sboFgSCVZJmIQ/viewform?usp=header" class="btn">Prakarya</a><p class="pengawas">Pengawas: Camera Aplication CBT</p></div>
   </div>
 </section>
 
-<!-- Kelas XI -->
 <section>
-  <h2>🧑‍🎓 Kelas XI</h2>
+  <h2>🧑‍🎓 Kelas XI IPA</h2>
   <div class="card-group">
-    <div class="card ppkn"><h3>09:00 - 10:00</h3><a id="btn-xi-ppkn" href="https://docs.google.com/forms/d/e/1FAIpQLSd9Ja6nKtsBkwD5lXi44vYxb97Q2_mhpAVFfcqgcG9KX4m2Vw/viewform?usp=header" class="btn">PPKN</a><p class="pengawas">Pengawas: Sri Lestiana</p></div>
-    <div class="card pjok"><h3>10:00 - 11:00</h3><a id="btn-xi-pjok" href="pjok-xi.html" class="btn">PJOK</a><p class="pengawas">Pengawas: Asri Dewantoro</p></div>
-    <div class="card prakarya"><h3>11:00 - 12:00</h3><a id="btn-xi-prakarya" href="prakarya-xi.html" class="btn">Prakarya</a><p class="pengawas">Pengawas: Irma Tania</p></div>
+    <div class="card indonesia"><h3>09:00 - 10:00</h3><a id="btn-xiipa-indonesia" href="https://docs.google.com/forms/d/e/1FAIpQLSd9Ja6nKtsBkwD5lXi44vYxb97Q2_mhpAVFfcqgcG9KX4m2Vw/viewform?usp=header" class="btn">PPKN</a><p class="pengawas">Pengawas: Sri Lestiana</p></div>
+    <div class="card kimia"><h3>10:00 - 11:00</h3><a id="btn-xiipa-kimia" href="#" class="btn">PJOK</a><p class="pengawas">Pengawas: Asri Dewantoro</p></div>
+    <div class="card seni"><h3>12:00 - 13:00</h3><a id="btn-xiipa-seni" href="https://docs.google.com/forms/d/e/1FAIpQLSdqnZO5tHuhquy3fB5e_p8abUEVoLAwXJc09JUIaziIGRMXDw/viewform?usp=header" class="btn">Prakarya</a><p class="pengawas">Pengawas: Irma Tania</p></div>
   </div>
 </section>
 
-<!-- Kelas XII -->
 <section>
-  <h2>🧑‍🎓 Kelas XII</h2>
+  <h2>🧑‍🎓 Kelas XII IPA</h2>
   <div class="card-group">
-    <div class="card ppkn"><h3>09:00 - 10:00</h3><a id="btn-xii-ppkn" href="https://docs.google.com/forms/d/e/1FAIpQLSe8_ti7yPfUD523jL7mC8rYTP0DMWjbzuiEm5pjTQiJvv3gMw/viewform?usp=header" class="btn">PPKN</a><p class="pengawas">Pengawas: Sri Lestiana</p></div>
-    <div class="card pjok"><h3>10:00 - 11:00</h3><a id="btn-xii-pjok" href="pjok-xii.html" class="btn">PJOK</a><p class="pengawas">Pengawas: Asri Dewantoro</p></div>
-        <div class="card prakarya"><h3>11:00 - 12:00</h3><a id="btn-xii-prakarya" href="prakarya-xii.html" class="btn">Prakarya</a><p class="pengawas">Pengawas: Irma Tania</p></div>
+    <div class="card indonesia">
+      <h3>09:00 - 10:00</h3>
+      <a id="btn-xiiipa-indonesia" href="https://docs.google.com/forms/d/e/1FAIpQLSe8_ti7yPfUD523jL7mC8rYTP0DMWjbzuiEm5pjTQiJvv3gMw/viewform?usp=header" class="btn">PPKN</a>
+      <p class="pengawas">Pengawas: Sri Lestiana</p>
+    </div>
+    <div class="card kimia">
+      <h3>10:00 - 11:00</h3>
+      <a id="btn-xiiipa-kimia" href="#" class="btn">PJOK</a>
+      <p class="pengawas">Pengawas: Asri Dewantora</p>
+    </div>
+    <div class="card seni">
+      <h3>12:00 - 13:00</h3>
+      <a id="btn-xiiipa-seni" href="https://docs.google.com/forms/d/e/1FAIpQLSeE_DZhBJog2_dbX5osyjrdQnkby8mSmKMmKIJwu5hoqtaEdA/viewform?usp=header" class="btn">Prakarya</a>
+      <p class="pengawas">Pengawas: Irma Tania</p>
+    </div>
   </div>
 </section>
 
 <footer>
-  © PKBM Ristek Nusantara Jaya | TP 2025–2026<br>Desain oleh RNJ Cikarang
+  © PKBM Ristek Nusantara Jaya | TP 2025–2026<br>
+  Desain oleh RNJ Cikarang
 </footer>
 
 <script>
+  // Pengaturan kunci soal di luar jadwal
   const soalSettings = {
-    "btn-x-ppkn": false,
-    "btn-x-pjok": true,
-    "btn-x-prakarya": false,
-
-    "btn-xi-ppkn": false,
-    "btn-xi-pjok": true,
-    "btn-xi-prakarya": false,
-
-    "btn-xii-ppkn": false,
-    "btn-xii-pjok": true,
-    "btn-xii-prakarya": false
+    "btn-xipa-indonesia": false,
+    "btn-xipa-kimia": false,
+    "btn-xipa-seni": false,
+    "btn-xiipa-indonesia": false,
+    "btn-xiipa-kimia": false,
+    "btn-xiipa-seni": false,
+    "btn-xiiipa-indonesia": false,
+    "btn-xiiipa-kimia": false,
+    "btn-xiiipa-seni": false,
   };
 
-  function applySettings() {
-    Object.keys(soalSettings).forEach(id => {
-      const btn = document.getElementById(id);
-      if (btn) {
-        if (soalSettings[id]) {
+  function applySettings(){
+    Object.keys(soalSettings).forEach(id=>{
+      const btn=document.getElementById(id);
+      if(btn){
+        if(soalSettings[id]){
           btn.classList.add("locked");
-          btn.setAttribute("href", "#");
-          if (!btn.textContent.includes("(Terkunci)")) {
+          btn.setAttribute("href","#");
+          if(!btn.textContent.includes("(Terkunci)")) {
             btn.textContent += " (Terkunci)";
           }
         } else {
@@ -126,7 +126,6 @@
       }
     });
   }
-
   applySettings();
 </script>
 
