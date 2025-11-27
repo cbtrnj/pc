@@ -209,7 +209,7 @@
       const aktif = (hariAktif.includes(hari)) && (currentHour >= startHour && currentHour <= endHour);
 
       const tombol = document.createElement(aktif ? "a" : "div");
-      tombol.innerHTML = `📅 ${hari}<br><small>CBT aktif ${startHour}:00–${endHour}:00 WIB</small>`;
+      tombol.innerHTML = `📌 ${hari}<br><small>CBT aktif ${startHour}:00–${endHour}:00 WIB</small>`;
       tombol.className = `btn ${aktif ? "aktif" : "nonaktif"}`;
       if (aktif) tombol.href = linkHari[hari];
       container.appendChild(tombol);
