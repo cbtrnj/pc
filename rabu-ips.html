@@ -5,99 +5,96 @@
   <title>CBT PAS - Hari Rabu (IPS)</title>
   <style>
     body {
-      font-family:'Segoe UI',sans-serif;
-      background:#f4f7fc;
-      margin:0;
-      color:#333;
-      min-height:100vh;
-      overflow-x:hidden;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f7fc;
+      margin: 0;
+      color: #333;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
 
     /* Neon wave background */
     .neon-bg {
-      position:absolute; top:30%; left:-20%; width:140%; height:300px;
-      background:linear-gradient(135deg,rgba(0,255,180,0.35),rgba(255,140,0,0.35),rgba(255,215,0,0.35));
-      filter:blur(60px); transform:rotate(-10deg); z-index:0;
+      position: absolute;
+      top: 30%;
+      left: -20%;
+      width: 140%;
+      height: 300px;
+      background: linear-gradient(135deg, rgba(0, 255, 180, 0.35), rgba(255, 140, 0, 0.35), rgba(255, 215, 0, 0.35));
+      filter: blur(60px);
+      transform: rotate(-10deg);
+      z-index: 0;
     }
 
     header {
-      background:linear-gradient(135deg,#005baa,#003f7f);
-      color:white;
-      padding:24px;
-      text-align:center;
-      border-bottom:4px solid #ffc107;
-      box-shadow:0 4px 12px rgba(0,0,0,0.15);
-      position:relative;
-      z-index:1;
+      background: linear-gradient(135deg, #005baa, #003f7f);
+      color: white;
+      padding: 24px;
+      text-align: center;
+      border-bottom: 4px solid #ffc107;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      position: relative;
+      z-index: 1;
     }
-    header h1 { font-size:2em; margin:0; font-weight:800; }
-    header p { margin:5px 0 0; }
 
-    section { padding:20px; position:relative; z-index:1; border-bottom:2px dashed #ccc; }
-    h2 { color:#005baa; margin:30px 0 20px; font-size:1.4em; font-weight:700; }
+    header h1 { font-size: 2em; margin: 0; font-weight: 800; }
+    header p { margin: 5px 0 0; }
 
-    /* Flex grid untuk card */
-    .card-group { display:flex; flex-wrap:wrap; gap:20px; }
+    section { padding: 20px; position: relative; z-index: 1; border-bottom: 2px dashed #ccc; }
+    h2 { color: #005baa; margin: 30px 0 20px; font-size: 1.4em; font-weight: 700; }
+
+    .card-group { display: flex; flex-wrap: wrap; gap: 20px; }
     .card {
-      border-radius:14px;
-      padding:20px;
-      box-shadow:0 6px 16px rgba(0,0,0,0.08);
-      transition:transform 0.3s ease, box-shadow 0.3s ease;
-      color:#fff;
-      flex:1 1 280px;
-      min-height:200px;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      color: #fff;
+      flex: 1 1 280px;
+      min-height: 200px;
     }
-    .card:hover { transform:translateY(-5px); box-shadow:0 10px 24px rgba(0,0,0,0.15); }
-    .card h3 { margin-top:0; font-size:1.1em; font-weight:700; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 10px 24px rgba(0,0,0,0.15); }
+    .card h3 { margin-top: 0; font-size: 1.1em; font-weight: 700; }
 
-    /* Card agama lebih tinggi */
-    .card.agama { min-height:240px; }
+    .card.agama { min-height: 240px; }
 
     .btn {
-      display:inline-block;
-      background:rgba(255,255,255,0.9);
-      color:#333;
-      padding:10px 14px;
-      margin-top:10px;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:bold;
-      transition:background 0.3s ease;
+      display: inline-block;
+      background: rgba(255,255,255,0.9);
+      color: #333;
+      padding: 10px 14px;
+      margin-top: 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
     }
-    .btn:hover { background:#ffc107; color:#005baa; }
-    .btn.locked { background:#aaa; color:#eee; cursor:not-allowed; pointer-events:none; }
+    .btn:hover { background: #ffc107; color: #005baa; }
+    .btn.locked { background: #aaa; color: #eee; cursor: not-allowed; pointer-events: none; }
 
-    .pengawas {
-      font-size:0.9em;
-      margin-top:8px;
-      font-style:italic;
-      color:#fff; /* lebih kontras */
-    }
+    .pengawas { font-size: 0.9em; margin-top: 8px; font-style: italic; color: #fff; }
 
-    /* Variasi warna card */
-    .card.inggris { background:linear-gradient(135deg,#1E90FF,#00BFFF); }
-    .card.geografi { background:linear-gradient(135deg,#43cea2,#185a9d); }
-    .card.agama { background:linear-gradient(135deg,#8e2de2,#4a00e0); }
+    .card.inggris { background: linear-gradient(135deg,#1E90FF,#00BFFF); }
+    .card.geografi { background: linear-gradient(135deg,#43cea2,#185a9d); }
+    .card.agama { background: linear-gradient(135deg,#8e2de2,#4a00e0); }
 
-    /* Tombol agama */
-    .agama-buttons { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
+    .agama-buttons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
     .agama-buttons a {
-      flex:1 1 140px;
-      background:rgba(255,255,255,0.95);
-      color:#333;
-      padding:10px 14px;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:bold;
-      text-align:center;
-      transition:background 0.3s ease;
+      flex: 1 1 140px;
+      background: rgba(255,255,255,0.95);
+      color: #333;
+      padding: 10px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+      transition: background 0.3s ease;
     }
-    .agama-buttons a:hover { background:#ffc107; color:#005baa; }
-    .agama-buttons a.locked { background:#aaa; color:#eee; pointer-events:none; }
+    .agama-buttons a:hover { background: #ffc107; color: #005baa; }
+    .agama-buttons a.locked { background: #aaa; color: #eee; pointer-events: none; }
 
-    /* Responsif HP */
     @media (max-width:600px) {
-      .card-group { flex-direction:column; }
+      .card-group { flex-direction: column; }
       .card { flex:1 1 100%; font-size:1em; padding:18px; min-height:200px; }
       .card.agama { min-height:280px; }
       .card h3 { font-size:1.05em; }
@@ -106,147 +103,155 @@
       .agama-buttons a { flex:1 1 100%; font-size:1em; padding:14px; }
     }
 
-    footer {
-      text-align:center;
-      padding:20px;
-      font-size:12px;
-      color:#555;
-      background:rgba(255,255,255,0.85);
-      border-top:2px solid #ffc107;
-      position:relative;
-      z-index:1;
-    }
+    footer { text-align:center; padding:20px; font-size:12px; color:#555; background:rgba(255,255,255,0.85); border-top:2px solid #ffc107; position:relative; z-index:1; }
   </style>
 </head>
 <body>
+  <div class="neon-bg"></div>
+  <header>
+    <h1>CBT PAS - Hari Rabu (IPS)</h1>
+    <p>PKBM Ristek Nusantara Jaya</p>
+    <p>Tahun Pelajaran 2025/2026</p>
+  </header>
 
-<div class="neon-bg"></div>
-
-<header>
-  <h1>CBT PAS - Hari Rabu (IPS)</h1>
-  <p>PKBM Ristek Nusantara Jaya</p>
-  <p>Tahun Pelajaran 2025/2026</p>
-</header>
-
-<!-- Kelas X -->
-<section>
-  <h2>🧑‍🎓 Kelas X</h2>
-  <div class="card-group">
-    <div class="card inggris"><h3>📘 09:00 - 10:00</h3><a id="btn-xips-inggris" href="#" class="btn">Bahasa Inggris</a><p class="pengawas">Pengawas: Camera Application CBT</p></div>
-    <div class="card geografi"><h3>🌍 10:00 - 11:00</h3><a id="btn-xips-geografi" href="#" class="btn">Geografi</a><p class="pengawas">Pengawas: Camera Application CBT</p></div>
-    <div class="card agama"><h3>🙏 11:00 - 12:00</h3><p>Pendidikan Agama:</p><p class="pengawas">Pengawas: Camera Application CBT</p>
-      <div class="agama-buttons">
-        <a id="btn-xips-agama-islam" href="#">Islam</a>
-        <a id="btn-xips-agama-kristen" href="#">Kristen</a>
-        <a id="btn-xips-agama-katolik" href="#">Katolik</a>
-        <a id="btn-xips-agama-hindu" href="#">Hindu</a>
-        <a id="btn-xips-agama-budha" href="#">Budha</a>
+  <!-- Kelas X -->
+  <section>
+    <h2>🧑‍🎓 Kelas X</h2>
+    <div class="card-group">
+      <div class="card inggris">
+        <h3>📘 09:00 - 10:00</h3>
+        <a id="btn-xips-inggris" href="#" class="btn">Bahasa Inggris</a>
+        <p class="pengawas">Pengawas: Camera Application CBT</p>
+      </div>
+      <div class="card geografi">
+        <h3>🌍 10:00 - 11:00</h3>
+        <a id="btn-xips-geografi" href="#" class="btn">Geografi</a>
+        <p class="pengawas">Pengawas: Camera Application CBT</p>
+      </div>
+      <div class="card agama">
+        <h3>🙏 11:00 - 12:00</h3>
+        <p>Pendidikan Agama:</p>
+        <p class="pengawas">Pengawas: Camera Application CBT</p>
+        <div class="agama-buttons">
+          <a id="btn-xips-agama-islam" href="#">Islam</a>
+          <a id="btn-xips-agama-kristen" href="#">Kristen</a>
+          <a id="btn-xips-agama-katolik" href="#">Katolik</a>
+          <a id="btn-xips-agama-hindu" href="#">Hindu</a>
+          <a id="btn-xips-agama-budha" href="#">Budha</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Kelas XI -->
-<section>
-  <h2>🧑‍🎓 Kelas XI</h2>
-  <div class="card-group">
-    <div class="card inggris"><h3>📘 09:00 - 10:00</h3><a id="btn-xiips-inggris" href="#" class="btn">Bahasa Inggris</a><p class="pengawas">Pengawas: Arif Darwanto</p></div>
-    <div class="card geografi"><h3>🌍 10:00 - 11:00</h3><a id="btn-xiips-geografi" href="#" class="btn">Geografi</a><p class="pengawas">Pengawas: Irma Tania</p></div>
-    <div class="card agama"><h3>🙏 11:00 - 12:00</h3><p>Pendidikan Agama:</p><p class="pengawas">Pengawas: Vika Hidayati</p>
-      <div class="agama-buttons">
-        <a id="btn-xiips-agama-islam" href="#">Islam</a>
-        <a id="btn-xiips-agama-kristen" href="#">Kristen</a>
-        <a id="btn-xiips-agama-katolik" href="#">Katolik</a>
-        <a id="btn-xiips-agama-hindu" href="#">Hindu</a>
-        <a id="btn-xiips-agama-budha" href="#">Budha</a>
+  <!-- Kelas XI -->
+  <section>
+    <h2>🧑‍🎓 Kelas XI</h2>
+    <div class="card-group">
+      <div class="card inggris">
+        <h3>📘 09:00 - 10:00</h3>
+        <a id="btn-xiips-inggris" href="#" class="btn">Bahasa Inggris</a>
+        <p class="pengawas">Pengawas: Arif Darwanto</p>
+      </div>
+      <div class="card geografi">
+        <h3>🌍 10:00 - 11:00</h3>
+        <a id="btn-xiips-geografi" href="#" class="btn">Geografi</a>
+        <p class="pengawas">Pengawas: Irma Tania</p>
+      </div>
+      <div class="card agama">
+        <h3>🙏 11:00 - 12:00</h3>
+        <p>Pendidikan Agama:</p>
+        <p class="pengawas">Pengawas: Vika Hidayati</p>
+        <div class="agama-buttons">
+          <a id="btn-xiips-agama-islam" href="#">Islam</a>
+          <a id="btn-xiips-agama-kristen" href="#">Kristen</a>
+          <a id="btn-xiips-agama-katolik" href="#">Katolik</a>
+          <a id="btn-xiips-agama-hindu" href="#">Hindu</a>
+          <a id="btn-xiips-agama-budha" href="#">Budha</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Kelas XII -->
-<section>
-  <h2>🧑‍🎓 Kelas XII</h2>
-  <div class="card-group">
-    <div class="card inggris">
-      <h3>📘 09:00 - 10:00</h3>
-      <a id="btn-xiiips-inggris" href="#" class="btn">Bahasa Inggris</a>
-      <p class="pengawas">Pengawas: Arif Darwanto</p>
-    </div>
-
-    <div class="card geografi">
-      <h3>🌍 10:00 - 11:00</h3>
-      <a id="btn-xiiips-geografi" href="#" class="btn">Geografi</a>
-      <p class="pengawas">Pengawas: Irma Tania</p>
-    </div>
-
-    <div class="card agama">
-      <h3>🙏 11:00 - 12:00</h3>
-      <p>Pendidikan Agama:</p>
-      <p class="pengawas">Pengawas: Vika Hidayati</p>
-      <div class="agama-buttons">
-        <a id="btn-xiiips-agama-islam" href="#">Islam</a>
-        <a id="btn-xiiips-agama-kristen" href="#">Kristen</a>
-        <a id="btn-xiiips-agama-katolik" href="#">Katolik</a>
-        <a id="btn-xiiips-agama-hindu" href="#">Hindu</a>
-        <a id="btn-xiiips-agama-budha" href="#">Budha</a>
+    <!-- Kelas XII -->
+  <section>
+    <h2>🧑‍🎓 Kelas XII</h2>
+    <div class="card-group">
+      <div class="card inggris">
+        <h3>📘 09:00 - 10:00</h3>
+        <a id="btn-xiiips-inggris" href="#" class="btn">Bahasa Inggris</a>
+        <p class="pengawas">Pengawas: Arif Darwanto</p>
+      </div>
+      <div class="card geografi">
+        <h3>🌍 10:00 - 11:00</h3>
+        <a id="btn-xiiips-geografi" href="#" class="btn">Geografi</a>
+        <p class="pengawas">Pengawas: Irma Tania</p>
+      </div>
+      <div class="card agama">
+        <h3>🙏 11:00 - 12:00</h3>
+        <p>Pendidikan Agama:</p>
+        <p class="pengawas">Pengawas: Vika Hidayati</p>
+        <div class="agama-buttons">
+          <a id="btn-xiiips-agama-islam" href="#">Islam</a>
+          <a id="btn-xiiips-agama-kristen" href="#">Kristen</a>
+          <a id="btn-xiiips-agama-katolik" href="#">Katolik</a>
+          <a id="btn-xiiips-agama-hindu" href="#">Hindu</a>
+          <a id="btn-xiiips-agama-budha" href="#">Budha</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  © PKBM Ristek Nusantara Jaya | TP 2025–2026<br>
-  Desain oleh RNJ Cikarang
-</footer>
+  <footer>
+    &copy; PKBM Ristek Nusantara Jaya | TP 2025–2026<br>
+    Desain oleh RNJ Cikarang
+  </footer>
 
-<script>
-  // daftar pengaturan soal: true = terkunci, false = terbuka
-  const soalSettings = {
-    "btn-xips-inggris": false,
-    "btn-xips-geografi": true,
-    "btn-xips-agama-islam": true,
-    "btn-xips-agama-kristen": true,
-    "btn-xips-agama-katolik": true,
-    "btn-xips-agama-hindu": true,
-    "btn-xips-agama-budha": true,
+  <script>
+    // daftar pengaturan soal: true = terkunci, false = terbuka
+    const soalSettings = {
+      "btn-xips-inggris": false,
+      "btn-xips-geografi": true,
+      "btn-xips-agama-islam": true,
+      "btn-xips-agama-kristen": true,
+      "btn-xips-agama-katolik": true,
+      "btn-xips-agama-hindu": true,
+      "btn-xips-agama-budha": true,
 
-    "btn-xiips-inggris": false,
-    "btn-xiips-geografi": true,
-    "btn-xiips-agama-islam": true,
-    "btn-xiips-agama-kristen": true,
-    "btn-xiips-agama-katolik": true,
-    "btn-xiips-agama-hindu": true,
-    "btn-xiips-agama-budha": true,
+      "btn-xiips-inggris": false,
+      "btn-xiips-geografi": true,
+      "btn-xiips-agama-islam": true,
+      "btn-xiips-agama-kristen": true,
+      "btn-xiips-agama-katolik": true,
+      "btn-xiips-agama-hindu": true,
+      "btn-xiips-agama-budha": true,
 
-    "btn-xiiips-inggris": false,
-    "btn-xiiips-geografi": true,
-    "btn-xiiips-agama-islam": true,
-    "btn-xiiips-agama-kristen": true,
-    "btn-xiiips-agama-katolik": true,
-    "btn-xiiips-agama-hindu": true,
-    "btn-xiiips-agama-budha": true
-  };
+      "btn-xiiips-inggris": false,
+      "btn-xiiips-geografi": true,
+      "btn-xiiips-agama-islam": true,
+      "btn-xiiips-agama-kristen": true,
+      "btn-xiiips-agama-katolik": true,
+      "btn-xiiips-agama-hindu": true,
+      "btn-xiiips-agama-budha": true
+    };
 
-  function applySettings() {
-    Object.keys(soalSettings).forEach(id => {
-      const btn = document.getElementById(id);
-      if (btn) {
-        if (soalSettings[id]) {
-          btn.classList.add("locked");
-          btn.setAttribute("href", "#");
-          if (!btn.textContent.includes("(Terkunci)")) {
-            btn.textContent += " (Terkunci)";
+    function applySettings() {
+      Object.keys(soalSettings).forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) {
+          if (soalSettings[id]) {
+            btn.classList.add("locked");
+            btn.setAttribute("href", "#");
+            if (!btn.textContent.includes("(Terkunci)")) {
+              btn.textContent += " (Terkunci)";
+            }
+          } else {
+            btn.classList.remove("locked");
           }
-        } else {
-          btn.classList.remove("locked");
         }
-      }
-    });
-  }
+      });
+    }
 
-  applySettings();
-</script>
-
+    applySettings();
+  </script>
 </body>
 </html>
