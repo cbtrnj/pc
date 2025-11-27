@@ -4,17 +4,32 @@
   <meta charset="UTF-8">
   <title>CBT PAS - Hari Rabu (IPS)</title>
   <style>
-    body { font-family:'Segoe UI',sans-serif; background:#f4f7fc; margin:0; color:#333; min-height:100vh; overflow-x:hidden; }
+    body {
+      font-family:'Segoe UI',sans-serif;
+      background:#f4f7fc;
+      margin:0;
+      color:#333;
+      min-height:100vh;
+      overflow-x:hidden;
+    }
 
     /* Neon wave background */
     .neon-bg {
-      position: absolute; top:30%; left:-20%; width:140%; height:300px;
-      background: linear-gradient(135deg, rgba(0,255,180,0.35), rgba(255,140,0,0.35), rgba(255,215,0,0.35));
-      filter: blur(60px); transform: rotate(-10deg); z-index:0;
+      position:absolute; top:30%; left:-20%; width:140%; height:300px;
+      background:linear-gradient(135deg,rgba(0,255,180,0.35),rgba(255,140,0,0.35),rgba(255,215,0,0.35));
+      filter:blur(60px); transform:rotate(-10deg); z-index:0;
     }
 
-    header { background:linear-gradient(135deg,#005baa,#003f7f); color:white; padding:24px; text-align:center;
-             border-bottom:4px solid #ffc107; box-shadow:0 4px 12px rgba(0,0,0,0.15); position:relative; z-index:1; }
+    header {
+      background:linear-gradient(135deg,#005baa,#003f7f);
+      color:white;
+      padding:24px;
+      text-align:center;
+      border-bottom:4px solid #ffc107;
+      box-shadow:0 4px 12px rgba(0,0,0,0.15);
+      position:relative;
+      z-index:1;
+    }
     header h1 { font-size:2em; margin:0; font-weight:800; }
     header p { margin:5px 0 0; }
 
@@ -30,7 +45,7 @@
       transition:transform 0.3s ease, box-shadow 0.3s ease;
       color:#fff;
       flex:1 1 280px;
-      min-height:200px; /* tinggi minimum seragam */
+      min-height:200px;
     }
     .card:hover { transform:translateY(-5px); box-shadow:0 10px 24px rgba(0,0,0,0.15); }
     .card h3 { margin-top:0; font-size:1.1em; font-weight:700; }
@@ -38,11 +53,26 @@
     /* Card agama lebih tinggi */
     .card.agama { min-height:240px; }
 
-    .btn { display:inline-block; background:rgba(255,255,255,0.9); color:#333; padding:10px 14px; margin-top:10px; border-radius:8px; text-decoration:none; font-weight:bold; transition:background 0.3s ease; }
+    .btn {
+      display:inline-block;
+      background:rgba(255,255,255,0.9);
+      color:#333;
+      padding:10px 14px;
+      margin-top:10px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:bold;
+      transition:background 0.3s ease;
+    }
     .btn:hover { background:#ffc107; color:#005baa; }
     .btn.locked { background:#aaa; color:#eee; cursor:not-allowed; pointer-events:none; }
 
-    .pengawas { font-size:0.85em; margin-top:8px; font-style:italic; color:rgba(255,255,255,0.9); }
+    .pengawas {
+      font-size:0.85em;
+      margin-top:8px;
+      font-style:italic;
+      color:rgba(255,255,255,0.9);
+    }
 
     /* Variasi warna card */
     .card.inggris { background:linear-gradient(135deg,#1E90FF,#00BFFF); }
@@ -65,7 +95,7 @@
     .agama-buttons a:hover { background:#ffc107; color:#005baa; }
     .agama-buttons a.locked { background:#aaa; color:#eee; pointer-events:none; }
 
-    /* Media query untuk HP */
+    /* Responsif HP */
     @media (max-width:600px) {
       .card-group { flex-direction:column; }
       .card { flex:1 1 100%; font-size:1em; padding:18px; min-height:200px; }
@@ -76,7 +106,16 @@
       .agama-buttons a { flex:1 1 100%; font-size:0.95em; padding:12px; }
     }
 
-    footer { text-align:center; padding:20px; font-size:12px; color:#555; background:rgba(255,255,255,0.85); border-top:2px solid #ffc107; position:relative; z-index:1; }
+    footer {
+      text-align:center;
+      padding:20px;
+      font-size:12px;
+      color:#555;
+      background:rgba(255,255,255,0.85);
+      border-top:2px solid #ffc107;
+      position:relative;
+      z-index:1;
+    }
   </style>
 </head>
 <body>
@@ -93,9 +132,9 @@
 <section>
   <h2>🧑‍🎓 Kelas X</h2>
   <div class="card-group">
-    <div class="card inggris"><h3>📘 09:00 - 10:00</h3><a id="btn-xips-inggris" href="#" class="btn">Bahasa Inggris</a><p class="pengawas">Pengawas: Camera Aplication CBT</p></div>
-    <div class="card geografi"><h3>🌍 10:00 - 11:00</h3><a id="btn-xips-geografi" href="#" class="btn">Geografi</a><p class="pengawas">Pengawas: Camera Aplication CBT</p></div>
-    <div class="card agama"><h3>🙏 11:00 - 12:00</h3><p>Pendidikan Agama:</p><p class="pengawas">Pengawas: Camera Aplication CBT</p>
+    <div class="card inggris"><h3>📘 09:00 - 10:00</h3><a id="btn-xips-inggris" href="#" class="btn">Bahasa Inggris</a><p class="pengawas">Pengawas: Camera Application CBT</p></div>
+    <div class="card geografi"><h3>🌍 10:00 - 11:00</h3><a id="btn-xips-geografi" href="#" class="btn">Geografi</a><p class="pengawas">Pengawas: Camera Application CBT</p></div>
+    <div class="card agama"><h3>🙏 11:00 - 12:00</h3><p>Pendidikan Agama:</p><p class="pengawas">Pengawas: Camera Application CBT</p>
       <div class="agama-buttons">
         <a id="btn-xips-agama-islam" href="#">Islam</a>
         <a id="btn-xips-agama-kristen" href="#">Kristen</a>
@@ -111,7 +150,7 @@
 <section>
   <h2>🧑‍🎓 Kelas XI</h2>
   <div class="card-group">
-    <div class="card inggris"><h3>📘 09:00 - 10:00</h3><a id="btn-xiips-inggris" href="#" class="btn">Bahasa Inggris</a><p class="pengawas">Pengawas: Asri Dewantoro</p></div>
+    <div class="card inggris"><h3>📘 09:00 - 10:00</h3><a id="btn-xiips-inggris" href="#" class="btn">Bahasa Inggris</a><p class="pengawas">Pengawas: Arif Darwanto</p></div>
     <div class="card geografi"><h3>🌍 10:00 - 11:00</h3><a id="btn-xiips-geografi" href="#" class="btn">Geografi</a><p class="pengawas">Pengawas: Irma Tania</p></div>
     <div class="card agama"><h3>🙏 11:00 - 12:00</h3><p>Pendidikan Agama:</p><p class="pengawas">Pengawas: Vika Hidayati</p>
       <div class="agama-buttons">
@@ -132,8 +171,14 @@
     <div class="card inggris">
       <h3>📘 09:00 - 10:00</h3>
       <a id="btn-xiiips-inggris" href="#" class="btn">Bahasa Inggris</a>
-      <p class="pengawas">Pengawas: Asri Dewantoro</p>
-        <div class="card agama">
+      <p class="pengawas">Pengawas: Arif Darwanto</p>
+    </div>
+    <div class="card geografi">
+      <h3>🌍 10:00 - 11:00</h3>
+      <a id="btn-xiiips-geografi" href="#" class="btn">Geografi</a>
+      <p class="pengawas">Pengawas: Irma Tania</p>
+    </div>
+    <div class="card agama">
       <h3>🙏 11:00 - 12:00</h3>
       <p>Pendidikan Agama:</p>
       <p class="pengawas">Pengawas: Vika Hidayati</p>
