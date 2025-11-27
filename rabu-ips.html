@@ -2,8 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CBT PAS - Hari Rabu (IPS)</title>
+  <title>CBT PAS - Hari Rabu</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -12,7 +11,6 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-
     header {
       background: #005baa;
       color: white;
@@ -23,47 +21,53 @@
       z-index: 1;
     }
     header h1 { font-size: 2em; margin: 0; }
-    header p { margin: 5px 0 0; }
-
+    header p { font-size: 1em; margin: 5px 0 0; }
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.4em; }
+      header p { font-size: 0.85em; }
+    }
     section { padding: 20px; position: relative; z-index: 1; }
     h2 { color: #005baa; margin-top: 40px; }
-
     .card-group { display: flex; flex-wrap: wrap; gap: 20px; }
     .card {
-      background: white;
+      background: linear-gradient(135deg, #ffffff, #e6f0ff);
       border: 1px solid #ddd;
       border-left: 6px solid #005baa;
       padding: 15px;
       border-radius: 8px;
-      flex: 1 1 100%;
-      max-width: 600px;
-      margin: auto;
+      flex: 1 1 300px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
     .card h3 { margin-top: 0; color: #005baa; }
-
     .btn {
       display: inline-block;
       background: #005baa;
       color: white;
+      border: none;
       padding: 10px 15px;
       margin: 5px 0;
       border-radius: 5px;
+      cursor: pointer;
       text-decoration: none;
       font-weight: bold;
-      cursor: pointer;
       width: 100%;
       text-align: center;
     }
     .btn:hover { background: #003f7f; }
     .btn.locked { background: #aaa; color: #eee; cursor: not-allowed; pointer-events: none; }
-
-    .pengawas {
-      font-size: 0.9em;
-      color: #555;
-      margin-top: -5px;
-      margin-bottom: 10px;
+    .pengawas { font-size: 0.85em; color: #555; margin-top: -5px; margin-bottom: 10px; }
+    .agama-buttons button {
+      background: #005baa;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      margin: 3px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
     }
+    .agama-buttons button:hover { background: #003f7f; }
+    .agama-buttons button.locked { background: #aaa; color: #eee; cursor: not-allowed; pointer-events: none; }
 
     /* Aurora background */
     .aurora, .aurora2, .aurora3 {
@@ -73,40 +77,36 @@
       pointer-events: none;
     }
     .aurora {
-      background: radial-gradient(circle at 30% 70%, rgba(102,255,204,0.7), transparent 70%),
-                  radial-gradient(circle at 70% 30%, rgba(102,204,255,0.7), transparent 70%);
+      background: radial-gradient(circle at 30% 70%, rgba(102,255,204,0.6), transparent 70%),
+                  radial-gradient(circle at 70% 30%, rgba(102,204,255,0.6), transparent 70%);
       animation: auroraRotate 15s linear infinite, auroraFade 5s ease-in-out infinite alternate;
       filter: blur(15px);
     }
     .aurora2 {
-      background: radial-gradient(circle at 20% 80%, rgba(255,102,204,0.6), transparent 70%),
-                  radial-gradient(circle at 80% 20%, rgba(204,102,255,0.6), transparent 70%);
+      background: radial-gradient(circle at 20% 80%, rgba(255,102,204,0.5), transparent 70%),
+                  radial-gradient(circle at 80% 20%, rgba(204,102,255,0.5), transparent 70%);
       animation: auroraRotateReverse 18s linear infinite, auroraFade 6s ease-in-out infinite alternate;
       filter: blur(18px);
     }
     .aurora3 {
-      background: radial-gradient(circle at 50% 90%, rgba(0,102,255,0.6), transparent 70%),
-                  radial-gradient(circle at 40% 10%, rgba(0,255,204,0.6), transparent 70%);
+      background: radial-gradient(circle at 50% 90%, rgba(0,102,255,0.5), transparent 70%),
+                  radial-gradient(circle at 40% 10%, rgba(0,255,204,0.5), transparent 70%);
       animation: auroraRotate 20s linear infinite, auroraFade 7s ease-in-out infinite alternate;
       filter: blur(20px);
     }
-    @keyframes auroraRotate { from { transform: rotate(0deg) scale(1); } to { transform: rotate(360deg) scale(1.05); } }
-    @keyframes auroraRotateReverse { from { transform: rotate(360deg) scale(1); } to { transform: rotate(0deg) scale(1.05); } }
+    @keyframes auroraRotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes auroraRotateReverse { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
     @keyframes auroraFade { from { opacity: 0.4; } to { opacity: 0.9; } }
-
-    /* Daftar agama vertikal */
-    .agama-list { list-style: none; padding: 0; margin-top: 12px; }
-    .agama-list li { margin-bottom: 8px; }
   </style>
 </head>
 <body>
 
-  <div class="aurora"></div>
-  <div class="aurora2"></div>
-  <div class="aurora3"></div>
+<div class="aurora"></div>
+<div class="aurora2"></div>
+<div class="aurora3"></div>
 
 <header>
-  <h1>CBT PAS - Hari Rabu (IPS)</h1>
+  <h1>CBT PAS - Hari Rabu</h1>
   <p>PKBM Ristek Nusantara Jaya</p>
   <p>Tahun Pelajaran 2025/2026</p>
 </header>
@@ -117,25 +117,25 @@
   <div class="card-group">
     <div class="card">
       <h3>09:00 - 10:00</h3>
-      <a id="btn-xips-inggris" href="#" class="btn">Bahasa Inggris</a>
-      <p class="pengawas">Pengawas: Camera Application CBT</p>
+      <a id="btn-x-inggris" href="https://sites.google.com/view/cbtpc-aplication/placeholder" class="btn">Bahasa Inggris</a>
+      <p class="pengawas">Pengawas: Camera Aplication CBT</p>
     </div>
     <div class="card">
       <h3>10:00 - 11:00</h3>
-      <a id="btn-xips-geografi" href="#" class="btn">Geografi</a>
-      <p class="pengawas">Pengawas: Camera Application CBT</p>
+      <a id="btn-x-geografi" href="https://sites.google.com/view/cbtpc-aplication/placeholder" class="btn">Geografi</a>
+      <p class="pengawas">Pengawas: Camera Aplication CBT</p>
     </div>
     <div class="card">
       <h3>11:00 - 12:00</h3>
       <p>Pendidikan Agama:</p>
-      <p class="pengawas">Pengawas: Camera Application CBT</p>
-      <ul class="agama-list">
-        <li><a id="btn-xips-agama-islam" href="#" class="btn">Islam</a></li>
-        <li><a id="btn-xips-agama-kristen" href="#" class="btn">Kristen</a></li>
-        <li><a id="btn-xips-agama-katolik" href="#" class="btn">Katolik</a></li>
-        <li><a id="btn-xips-agama-hindu" href="#" class="btn">Hindu</a></li>
-        <li><a id="btn-xips-agama-budha" href="#" class="btn">Budha</a></li>
-      </ul>
+      <p class="pengawas">Pengawas: Camera Aplication CBT</p>
+      <div class="agama-buttons">
+        <button id="btn-x-agama-islam" onclick="location.href='https://sites.google.com/view/cbtpc-aplication/placeholder'">Islam</button>
+        <button id="btn-x-agama-kristen" onclick="location.href='https://sites.google.com/view/cbtpc-aplication/placeholder'">Kristen</button>
+        <button id="btn-x-agama-katolik" onclick="location.href='https://sites.google.com/view/cbtpc-aplication/placeholder'">Katolik</button>
+        <button id="btn-x-agama-hindu" onclick="location.href='https://sites.google.com/view/cbtpc-aplication/placeholder'">Hindu</button>
+        <button id="btn-x-agama-budha" onclick="location.href='https://sites.google.com/view/cbtpc-aplication/placeholder'">Budha</button>
+      </div>
     </div>
   </div>
 </section>
@@ -146,25 +146,25 @@
   <div class="card-group">
     <div class="card">
       <h3>09:00 - 10:00</h3>
-      <a id="btn-xiips-inggris" href="#" class="btn">Bahasa Inggris</a>
-      <p class="pengawas">Pengawas: Arif Darwanto</p>
+      <a id="btn-xi-inggris" href="" class="btn">Bahasa Inggris</a>
+      <p class="pengawas">Pengawas: Asri Dewantoro</p>
     </div>
     <div class="card">
       <h3>10:00 - 11:00</h3>
-      <a id="btn-xiips-geografi" href="#" class="btn">Geografi</a>
+      <a id="btn-xi-geografi" href="biologi-xi.html" class="btn">Geografi</a>
       <p class="pengawas">Pengawas: Irma Tania</p>
     </div>
     <div class="card">
       <h3>11:00 - 12:00</h3>
       <p>Pendidikan Agama:</p>
       <p class="pengawas">Pengawas: Vika Hidayati</p>
-      <ul class="agama-list">
-        <li><a id="btn-xiips-agama-islam" href="#" class="btn">Islam</a></li>
-        <li><a id="btn-xiips-agama-kristen" href="#" class="btn">Kristen</a></li>
-        <li><a id="btn-xiips-agama-katolik" href="#" class="btn">Katolik</a></li>
-        <li><a id="btn-xiips-agama-hindu" href="#" class="btn">Hindu</a></li>
-        <li><a id="btn-xiips-agama-budha" href="#" class="btn">Budha</a></li>
-      </ul>
+      <div class="agama-buttons">
+        <button id="btn-xi-agama-islam" onclick="location.href='https://sites.google.com/view/cbtpc-aplication/placeholder'">Islam</button>
+        <button id="btn-xi-agama-kristen" onclick="location.href='https://sites.google.com/view/cbtpc-aplication/placeholder'">Kristen</button>
+                <button id="btn-xi-agama-katolik" onclick="location.href='https://sites.google.com/view/cbtpc-aplication/placeholder'">Katolik</button>
+        <button id="btn-xi-agama-hindu" onclick="location.href='https://sites.google.com/view/cbtpc-aplication/placeholder'">Hindu</button>
+        <button id="btn-xi-agama-budha" onclick="location.href='https://sites.google.com/view/cbtpc-aplication/placeholder'">Budha</button>
+      </div>
     </div>
   </div>
 </section>
@@ -173,32 +173,32 @@
 <section>
   <h2>🧑‍🎓 Kelas XII</h2>
   <div class="card-group">
-        <div class="card">
+    <div class="card">
       <h3>09:00 - 10:00</h3>
-      <a id="btn-xiiips-inggris" href="#" class="btn">Bahasa Inggris</a>
-      <p class="pengawas">Pengawas: Arif Darwanto</p>
+      <a id="btn-xii-inggris" href="https://sites.google.com/view/cbtpc-aplication/placeholder" class="btn">Bahasa Inggris</a>
+      <p class="pengawas">Pengawas: Asri Dewantoro</p>
     </div>
     <div class="card">
       <h3>10:00 - 11:00</h3>
-      <a id="btn-xiiips-geografi" href="#" class="btn">Geografi</a>
+      <a id="btn-xii-geografi" href="biologi-xii.html" class="btn">Geografi</a>
       <p class="pengawas">Pengawas: Irma Tania</p>
     </div>
     <div class="card">
       <h3>11:00 - 12:00</h3>
       <p>Pendidikan Agama:</p>
       <p class="pengawas">Pengawas: Vika Hidayati</p>
-      <ul class="agama-list">
-        <li><a id="btn-xiiips-agama-islam" href="#" class="btn">Islam</a></li>
-        <li><a id="btn-xiiips-agama-kristen" href="#" class="btn">Kristen</a></li>
-        <li><a id="btn-xiiips-agama-katolik" href="#" class="btn">Katolik</a></li>
-        <li><a id="btn-xiiips-agama-hindu" href="#" class="btn">Hindu</a></li>
-        <li><a id="btn-xiiips-agama-budha" href="#" class="btn">Budha</a></li>
-      </ul>
+      <div class="agama-buttons">
+        <button id="btn-xii-agama-islam" onclick="location.href='https://sites.google.com/view/cbtpc-aplication/placeholder'">Islam</button>
+        <button id="btn-xii-agama-kristen" onclick="location.href='https://sites.google.com/view/cbtpc-aplication/placeholder'">Kristen</button>
+        <button id="btn-xii-agama-katolik" onclick="location.href='https://sites.google.com/view/cbtpc-aplication/placeholder'">Katolik</button>
+        <button id="btn-xii-agama-hindu" onclick="location.href='https://sites.google.com/view/cbtpc-aplication/placeholder'">Hindu</button>
+        <button id="btn-xii-agama-budha" onclick="location.href='https://sites.google.com/view/cbtpc-aplication/placeholder'">Budha</button>
+      </div>
     </div>
   </div>
 </section>
 
-<footer>
+<footer style="text-align:center; padding:15px; font-size:0.85em; color:#555; background:#f9f9f9; border-top:2px solid #ffc107;">
   © PKBM Ristek Nusantara Jaya | TP 2025–2026<br>
   Desain oleh RNJ Cikarang
 </footer>
@@ -206,43 +206,43 @@
 <script>
   // daftar pengaturan soal: true = terkunci, false = terbuka
   const soalSettings = {
-    "btn-xips-inggris": false,
-    "btn-xips-geografi": true,
-    "btn-xips-agama-islam": true,
-    "btn-xips-agama-kristen": true,
-    "btn-xips-agama-katolik": true,
-    "btn-xips-agama-hindu": true,
-    "btn-xips-agama-budha": true,
+    "btn-x-inggris": false,
+    "btn-x-geografi": true,
+    "btn-x-agama-islam": true,
+    "btn-x-agama-kristen": true,
+    "btn-x-agama-katolik": true,
+    "btn-x-agama-hindu": true,
+    "btn-x-agama-budha": true,
 
-    "btn-xiips-inggris": false,
-    "btn-xiips-geografi": true,
-    "btn-xiips-agama-islam": true,
-    "btn-xiips-agama-kristen": true,
-    "btn-xiips-agama-katolik": true,
-    "btn-xiips-agama-hindu": true,
-    "btn-xiips-agama-budha": true,
+    "btn-xi-inggris": false,
+    "btn-xi-geografi": true,
+    "btn-xi-agama-islam": true,
+    "btn-xi-agama-kristen": true,
+    "btn-xi-agama-katolik": true,
+    "btn-xi-agama-hindu": true,
+    "btn-xi-agama-budha": true,
 
-    "btn-xiiips-inggris": false,
-    "btn-xiiips-geografi": true,
-    "btn-xiiips-agama-islam": true,
-    "btn-xiiips-agama-kristen": true,
-    "btn-xiiips-agama-katolik": true,
-    "btn-xiiips-agama-hindu": true,
-    "btn-xiiips-agama-budha": true
+    "btn-xii-inggris": false,
+    "btn-xii-geografi": true,
+    "btn-xii-agama-islam": true,
+    "btn-xii-agama-kristen": true,
+    "btn-xii-agama-katolik": true,
+    "btn-xii-agama-hindu": true,
+    "btn-xii-agama-budha": true
   };
 
   function applySettings() {
     Object.keys(soalSettings).forEach(id => {
-      const btn = document.getElementById(id);
-      if (btn) {
+      const el = document.getElementById(id);
+      if (el) {
         if (soalSettings[id]) {
-          btn.classList.add("locked");
-          btn.setAttribute("href", "#");
-          if (!btn.textContent.includes("(Terkunci)")) {
-            btn.textContent += " (Terkunci)";
+          el.classList.add("locked");
+          el.setAttribute("href", "#");
+          if (!el.textContent.includes("(Terkunci)")) {
+            el.textContent += " (Terkunci)";
           }
         } else {
-          btn.classList.remove("locked");
+          el.classList.remove("locked");
         }
       }
     });
