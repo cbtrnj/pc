@@ -1,135 +1,224 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>CBT PAS - Hari Rabu (IPA)</title>
-  <style>
-    body { font-family:'Segoe UI',sans-serif; background:#f4f7fc; margin:0; color:#333; min-height:100vh; overflow-x:hidden; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CBT PAS - Hari Rabu</title>
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f7fc;
+    margin: 0;
+    min-height: 100vh;
+  }
+  header {
+    background: #005baa;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 4px solid #ffc107;
+  }
+  header h1 { margin: 0; font-size: 1.8rem; }
+  header p { margin: 4px 0; }
 
-    header { background:linear-gradient(135deg,#005baa,#003f7f); color:white; padding:24px; text-align:center; border-bottom:4px solid #ffc107; box-shadow:0 4px 12px rgba(0,0,0,0.15); position:relative; z-index:1; }
-    header h1 { font-size:2em; margin:0; font-weight:800; }
-    header p { margin:5px 0 0; }
+  main {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+  }
+  section { margin-bottom: 35px; }
+  h2 {
+    color: #005baa;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.3rem;
+  }
 
-    section { padding:20px; position:relative; z-index:1; }
-    h2 { color:#005baa; margin:30px 0 20px; font-size:1.4em; font-weight:700; }
+  .card-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-left: 6px solid #005baa;
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  .card h3 {
+    margin: 0 0 10px;
+    color: #005baa;
+    font-size: 1.2rem;
+  }
 
-    /* Ubah grid jadi flex-wrap */
-    .card-group { display:flex; flex-wrap:wrap; gap:20px; }
-    .card { border-radius:14px; padding:18px; box-shadow:0 6px 16px rgba(0,0,0,0.08); transition:transform 0.3s ease, box-shadow 0.3s ease; color:#fff; flex:1 1 260px; }
-    .card:hover { transform:translateY(-5px); box-shadow:0 10px 24px rgba(0,0,0,0.15); }
-    .card h3 { margin-top:0; font-size:1.1em; font-weight:700; }
+  .btn {
+    display: inline-block;
+    background: #005baa;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  .locked {
+    background: #aaa !important;
+    color: #eee !important;
+    pointer-events: none;
+  }
 
-    .btn { display:inline-block; background:rgba(255,255,255,0.9); color:#333; padding:10px 14px; margin-top:10px; border-radius:8px; text-decoration:none; font-weight:bold; transition:background 0.3s ease; }
-    .btn:hover { background:#ffc107; color:#005baa; }
-    .btn.locked { background:#aaa; color:#eee; cursor:not-allowed; pointer-events:none; }
+  .pengawas {
+    font-size: 0.85rem;
+    margin-top: 6px;
+    color: #444;
+  }
 
-    .pengawas { font-size:0.85em; margin-top:8px; font-style:italic; color:rgba(255,255,255,0.9); }
+  .agama-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .agama-buttons button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    background: #005baa;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .agama-buttons .locked {
+    background: #aaa !important;
+    color: #eee !important;
+  }
 
-    /* Variasi warna card */
-    .card.inggris { background:linear-gradient(135deg,#1E90FF,#00BFFF); }
-    .card.fisika  { background:linear-gradient(135deg,#43cea2,#185a9d); }
-    .card.agama   { background:linear-gradient(135deg,#8e2de2,#4a00e0); }
+  footer {
+    text-align: center;
+    padding: 15px;
+    background: #f9f9f9;
+    border-top: 2px solid #ffc107;
+    font-size: 0.85rem;
+    color: #444;
+  }
 
-    /* Tombol agama */
-    .agama-buttons { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
-    .agama-buttons a { flex:1 1 100px; background:rgba(255,255,255,0.9); color:#333; padding:8px 12px; border-radius:6px; text-decoration:none; font-weight:bold; transition:background 0.3s ease; }
-    .agama-buttons a:hover { background:#ffc107; color:#005baa; }
-    .agama-buttons a.locked { background:#aaa; color:#eee; pointer-events:none; }
-
-    /* Aurora background */
-    .aurora,.aurora2,.aurora3{position:fixed;inset:0;z-index:0;pointer-events:none;}
-    .aurora{background:radial-gradient(circle at 30% 70%,rgba(9, 171, 11, 0.7),transparent 70%),radial-gradient(circle at 70% 30%,rgba(102,204,255,0.7),transparent 70%);animation:auroraRotate 4s linear infinite,auroraFade 5s ease-in-out infinite alternate;filter:blur(15px);}
-    .aurora2{background:radial-gradient(circle at 20% 80%,rgba(255,102,204,0.6),transparent 70%),radial-gradient(circle at 80% 20%,rgba(162, 28, 228, 0.6),transparent 70%);animation:auroraRotateReverse 7s linear infinite,auroraFade 6s ease-in-out infinite alternate;filter:blur(18px);}
-    .aurora3{background:radial-gradient(circle at 50% 90%,rgba(0,102,255,0.6),transparent 70%),radial-gradient(circle at 40% 10%,rgba(0,255,204,0.6),transparent 70%);animation:auroraRotate 8s linear infinite,auroraFade 7s ease-in-out infinite alternate;filter:blur(20px);}
-    @keyframes auroraRotate{from{transform:rotate(0deg) scale(1);}to{transform:rotate(360deg) scale(1.05);}}
-    @keyframes auroraRotateReverse{from{transform:rotate(360deg) scale(1);}to{transform:rotate(0deg) scale(1.05);}}
-    @keyframes auroraFade{from{opacity:0.4;}to{opacity:0.9;}}
-
-    /* Media query untuk HP */
-    @media (max-width:600px) {
-      .card-group { flex-direction:column; }
-      .card { flex:1 1 100%; font-size:0.95em; padding:16px; }
-      .card h3 { font-size:1em; }
-      .btn { width:100%; text-align:center; }
-    }
-
-    footer{text-align:center;padding:20px;font-size:12px;color:#555;background:rgba(255,255,255,0.85);border-top:2px solid #ffc107;position:relative;z-index:1;}
-  </style>
+  /* MOBILE RESPONSIVE */
+  @media (max-width: 480px) {
+    header h1 { font-size: 1.4rem; }
+    .card { padding: 15px; }
+    h2 { font-size: 1.15rem; }
+    .btn, .agama-buttons button { font-size: 0.9rem; padding: 8px 14px; }
+  }
+</style>
 </head>
 <body>
 
-<div class="aurora"></div><div class="aurora2"></div><div class="aurora3"></div>
-
 <header>
-  <h1>CBT PAS - Hari Rabu (IPA)</h1>
+  <h1>CBT PAS - Hari Rabu</h1>
   <p>PKBM Ristek Nusantara Jaya</p>
   <p>Tahun Pelajaran 2025/2026</p>
 </header>
 
-<!-- Kelas X -->
-<section>
-  <h2>🧑‍🎓 Kelas X</h2>
-  <div class="card-group">
-    <div class="card inggris"><h3>📘 09:00 - 10:00</h3><a id="btn-x-inggris" href="https://docs.google.com/forms/d/e/1FAIpQLScmCDKTq_P4N4zQfP3XvvvZ-v8WSiosNdN6wanAKBGU3yfiEw/viewform?usp=header" class="btn">Bahasa Inggris</a><p class="pengawas">Pengawas: Camera Aplication CBT</p></div>
-    <div class="card fisika"><h3>🔬 10:00 - 11:00</h3><a id="btn-x-fisika" href="https://docs.google.com/forms/d/e/1FAIpQLSfDlHHDIKKO2vtGn4qA87hsLABMrMYBUG-vvZHEcSTlIphQSg/viewform?usp=header" class="btn">Fisika</a><p class="pengawas">Pengawas: Camera Aplication CBT</p></div>
-    <div class="card agama"><h3>🙏 11:00 - 12:00</h3><p>Pendidikan Agama:</p><p class="pengawas">Pengawas: Camera Aplication CBT</p>
-      <div class="agama-buttons">
-        <a id="btn-x-agama-islam" href="placeholdersoal.html">Islam</a>
-        <a id="btn-x-agama-kristen" href="placeholdersoal.html">Kristen</a>
-        <a id="btn-x-agama-katolik" href="placeholdersoal.html">Katolik</a>
-        <a id="btn-x-agama-hindu" href="placeholdersoal.html">Hindu</a>
-        <a id="btn-x-agama-budha" href="placeholdersoal.html">Budha</a>
+<main>
+  <section>
+    <h2>🧑‍🎓 Kelas X</h2>
+    <div class="card-group">
+      <div class="card">
+        <h3>09:00 - 10:00</h3>
+        <a id="btn-x-inggris" href="#" class="btn">Bahasa Inggris</a>
+        <p class="pengawas">Pengawas: Camera Aplication CBT</p>
+      </div>
+      <div class="card">
+        <h3>10:00 - 11:00</h3>
+        <a id="btn-x-geografi" href="#" class="btn">Fisika</a>
+        <p class="pengawas">Pengawas: Camera Aplication CBT</p>
+      </div>
+      <div class="card">
+        <h3>11:00 - 12:00</h3>
+        <p>Pendidikan Agama:</p>
+        <p class="pengawas">Pengawas: Camera Aplication CBT</p>
+        <div class="agama-buttons">
+          <button id="btn-x-agama-islam">Islam</button>
+          <button id="btn-x-agama-kristen">Kristen</button>
+          <button id="btn-x-agama-katolik">Katolik</button>
+          <button id="btn-x-agama-hindu">Hindu</button>
+          <button id="btn-x-agama-budha">Budha</button>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Kelas XI -->
-<section>
-  <h2>🧑‍🎓 Kelas XI</h2>
-  <div class="card-group">
-    <div class="card inggris"><h3>📘 09:00 - 10:00</h3><a id="btn-xi-inggris" href="https://docs.google.com/forms/d/e/1FAIpQLSdUOnK3BzaqbEsjxXjehCF1ka4hA8PiGyHBi_8i1FDfUfW_MA/viewform?usp=header" class="btn">Bahasa Inggris</a><p class="pengawas">Pengawas: Asri Dewantoro</p></div>
-    <div class="card fisika"><h3>🔬 10:00 - 11:00</h3><a id="btn-xi-fisika" href="https://docs.google.com/forms/d/e/1FAIpQLSfTBOn7vk9GjBdMn_PY6ZKo6U6wSjP3Q_L_JiPSO0TtwTC1Fg/viewform?usp=header" class="btn">Fisika</a><p class="pengawas">Pengawas: Irma Tania</p></div>
-    <div class="card agama"><h3>🙏 11:00 - 12:00</h3><p>Pendidikan Agama:</p><p class="pengawas">Pengawas: Vika Hidayati</p>
-      <div class="agama-buttons">
-            <a id="btn-xi-agama-islam" href="placeholdersoal.html">Islam</a>
-        <a id="btn-xi-agama-kristen" href="placeholdersoal.html">Kristen</a>
-        <a id="btn-xi-agama-katolik" href="placeholdersoal.html">Katolik</a>
-        <a id="btn-xi-agama-hindu" href="placeholdersoal.html">Hindu</a>
-        <a id="btn-xi-agama-budha" href="placeholdersoal.html">Budha</a>
+  <section>
+    <h2>🧑‍🎓 Kelas XI</h2>
+    <div class="card-group">
+      <div class="card">
+        <h3>09:00 - 10:00</h3>
+        <a id="btn-xi-inggris" href="#" class="btn">Bahasa Inggris</a>
+        <p class="pengawas">Pengawas: Asri Dewantoro</p>
+      </div>
+      <div class="card">
+        <h3>10:00 - 11:00</h3>
+        <a id="btn-xi-geografi" href="#" class="btn">Fisika</a>
+        <p class="pengawas">Pengawas: Irma Tania</p>
+      </div>
+      <div class="card">
+        <h3>11:00 - 12:00</h3>
+        <p>Pendidikan Agama:</p>
+        <p class="pengawas">Pengawas: Vika Hidayati</p>
+        <div class="agama-buttons">
+          <button id="btn-xi-agama-islam">Islam</button>
+          <button id="btn-xi-agama-kristen">Kristen</button>
+          <button id="btn-xi-agama-katolik">Katolik</button>
+          <button id="btn-xi-agama-hindu">Hindu</button>
+          <button id="btn-xi-agama-budha">Budha</button>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Kelas XII -->
-<section>
-  <h2>🧑‍🎓 Kelas XII</h2>
-  <div class="card-group">
-    <div class="card inggris"><h3>📘 09:00 - 10:00</h3><a id="btn-xii-inggris" href="https://docs.google.com/forms/d/e/1FAIpQLSfvRkqpXUEYEtM5Ld5sXI59GCWPE1AYJzpq66g2FmWg3VoDQg/viewform?usp=header" class="btn">Bahasa Inggris</a><p class="pengawas">Pengawas: Asri Dewantoro</p></div>
-    <div class="card fisika"><h3>🔬 10:00 - 11:00</h3><a id="btn-xii-fisika" href="https://docs.google.com/forms/d/e/1FAIpQLScd2br5Ts6TGMFkY0JS4zhuXkZJLsVPFyTUdti-pHJWy2uCig/viewform?usp=header" class="btn">Fisika</a><p class="pengawas">Pengawas: Irma Tania</p></div>
-    <div class="card agama"><h3>🙏 11:00 - 12:00</h3><p>Pendidikan Agama:</p><p class="pengawas">Pengawas: Vika Hidayati</p>
-      <div class="agama-buttons">
-        <a id="btn-xii-agama-islam" href="placeholdersoal.html">Islam</a>
-        <a id="btn-xii-agama-kristen" href="placeholdersoal.html">Kristen</a>
-        <a id="btn-xii-agama-katolik" href="placeholdersoal.html">Katolik</a>
-        <a id="btn-xii-agama-hindu" href="placeholdersoal.html">Hindu</a>
-        <a id="btn-xii-agama-budha" href="placeholdersoal.html">Budha</a>
+  <section>
+    <h2>🧑‍🎓 Kelas XII</h2>
+    <div class="card-group">
+      <div class="card">
+        <h3>09:00 - 10:00</h3>
+        <a id="btn-xii-inggris" href="#" class="btn">Bahasa Inggris</a>
+        <p class="pengawas">Pengawas: Asri Dewantoro</p>
+      </div>
+      <div class="card">
+        <h3>10:00 - 11:00</h3>
+        <a id="btn-xii-geografi" href="#" class="btn">Fisika</a>
+        <p class="pengawas">Pengawas: Irma Tania</p>
+      </div>
+      <div class="card">
+        <h3>11:00 - 12:00</h3>
+        <p>Pendidikan Agama:</p>
+        <p class="pengawas">Pengawas: Vika Hidayati</p>
+        <div class="agama-buttons">
+          <button id="btn-xii-agama-islam">Islam</button>
+          <button id="btn-xii-agama-kristen">Kristen</button>
+          <button id="btn-xii-agama-katolik">Katolik</button>
+          <button id="btn-xii-agama-hindu">Hindu</button>
+          <button id="btn-xii-agama-budha">Budha</button>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</main>
 
 <footer>
-  © PKBM Ristek Nusantara Jaya | TP 2025–2026<br>
-  Desain oleh RNJ Cikarang
+  © PKBM Ristek Nusantara Jaya | TP 2025–2026<br />Desain oleh RNJ Cikarang
 </footer>
 
 <script>
-  // daftar pengaturan soal: true = terkunci, false = terbuka
   const soalSettings = {
     "btn-x-inggris": false,
-    "btn-x-fisika": true,
+    "btn-x-geografi": true,
     "btn-x-agama-islam": true,
     "btn-x-agama-kristen": true,
     "btn-x-agama-katolik": true,
@@ -137,7 +226,7 @@
     "btn-x-agama-budha": true,
 
     "btn-xi-inggris": false,
-    "btn-xi-fisika": true,
+    "btn-xi-geografi": true,
     "btn-xi-agama-islam": true,
     "btn-xi-agama-kristen": true,
     "btn-xi-agama-katolik": true,
@@ -145,7 +234,7 @@
     "btn-xi-agama-budha": true,
 
     "btn-xii-inggris": false,
-    "btn-xii-fisika": true,
+    "btn-xii-geografi": true,
     "btn-xii-agama-islam": true,
     "btn-xii-agama-kristen": true,
     "btn-xii-agama-katolik": true,
@@ -155,21 +244,16 @@
 
   function applySettings() {
     Object.keys(soalSettings).forEach(id => {
-      const btn = document.getElementById(id);
-      if (btn) {
+      const el = document.getElementById(id);
+      if (el) {
         if (soalSettings[id]) {
-          btn.classList.add("locked");
-          btn.setAttribute("href", "#");
-          if (!btn.textContent.includes("(Terkunci)")) {
-            btn.textContent += " (Terkunci)";
-          }
-        } else {
-          btn.classList.remove("locked");
+          el.classList.add("locked");
+          if (el.tagName === "A") el.href = "#";
+          if (!el.textContent.includes("(Terkunci)")) el.textContent += " (Terkunci)";
         }
       }
     });
   }
-
   applySettings();
 </script>
 
