@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Ujian</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0b0c10;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    /* Aurora blur */
+    .aurora-layer {
+      position: absolute;
+      inset: -50%;
+      background: radial-gradient(circle at 30% 70%, rgba(0,150,255,0.6), transparent 70%),
+                  radial-gradient(circle at 70% 30%, rgba(0,255,204,0.5), transparent 70%),
+                  radial-gradient(circle at 50% 90%, rgba(255,102,255,0.4), transparent 70%),
+                  radial-gradient(circle at 40% 10%, rgba(255,215,0,0.3), transparent 70%);
+      filter: blur(120px);
+      mix-blend-mode: screen;
+      animation: auroraPulse 8s ease-in-out infinite alternate;
+    }
+    @keyframes auroraPulse {
+      from { transform: scale(1); opacity: 0.5; }
+      to   { transform: scale(1.2); opacity: 0.9; }
+    }
+
+    /* Ombak biru laut */
+    .wave {
+      position: absolute;
+      bottom: 0;
+      width: 200%;
+      height: 45%;
+      background: linear-gradient(180deg, rgba(0,191,255,0.7), rgba(30,144,255,0.6), rgba(173,216,230,0.4));
+      clip-path: polygon(0 60%, 15% 55%, 30% 65%, 45% 55%, 60% 65%, 75% 55%, 90% 65%, 100% 60%, 100% 100%, 0 100%);
+      animation: waveMove 5s ease-in-out infinite;
+      filter: blur(25px);
+      mix-blend-mode: screen;
+    }
+    .wave:nth-child(2) { animation-delay: -2.5s; opacity: 0.7; }
+    .wave:nth-child(3) { animation-delay: -4s; opacity: 0.5; }
+    @keyframes waveMove {
+      0%   { transform: translateX(0) translateY(0); }
+      50%  { transform: translateX(-4%) translateY(-2%); }
+      100% { transform: translateX(0) translateY(0); }
+    }
+
+    /* Bintang berkilau */
+    .star {
+      position: absolute;
+      width: 2px; height: 2px;
+      background: white; border-radius: 50%;
+      animation: twinkle 1.5s infinite alternate;
+    }
+    @keyframes twinkle {
+      from { opacity: 0.2; transform: scale(1); }
+      to   { opacity: 1; transform: scale(1.5); }
+    }
+
+    /* Login box */
+    .login-container {
+      max-width: 400px;
+      margin: 100px auto 40px;
+      padding: 20px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
+      text-align: center;
+    }
+    h2 { margin-bottom: 20px; }
+    input {
+      width: 100%;
+      max-width: 300px;   /* batas maksimal lebar */
+      padding: 10px;
+      margin: 8px auto;   /* center */
+      display: block;
+      border-radius: 6px;
+      border: none;
+      background: rgba(255,255,255,0.8);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    button {
+      width: 100%;
+      max-width: 300px;
+      padding: 12px;
+      margin: 12px auto;
+      display: block;
+      background: #2575FC; color: #fff;
+      border: none; border-radius: 8px; font-weight: bold;
+    }
+    button:hover { background: #1E90FF; cursor: pointer; }
+    .error { color: #FFD700; text-align: center; margin-top: 10px; }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #ddd;
+      margin-top: 30px;
+    }
+    .footer .pkbm { font-weight: 700; color: #fff; }
+    .footer .design { font-weight: 700; color: #FFD700; }
+  </style>
+</head>
+<body>
+  <!-- Aurora background -->
+  <div class="aurora-layer"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+
+  <!-- Login form -->
+  <div class="login-container">
+    <h2>Login Ujian</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+      <div id="error" class="error"></div>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="pkbm">© PKBM Ristek Nusantara Jaya | TP 2025–2026</div>
+    <div class="design">Copyright By RNJ Cikarang</div>
+  </div>
+
+  <!-- Script bintang + login -->
+  <script>
+    // Bintang berkilau
+    const starContainer = document.body;
+    for (let i = 0; i < 80; i++) {
+      const star = document.createElement("div");
+      star.classList.add("star");
+      star.style.top = Math.random() * 100 + "%";
+      star.style.left = Math.random() * 100 + "%";
+      star.style.animationDuration = (1 + Math.random() * 1.5) + "s";
+      starContainer.appendChild(star);
+    }
+
+    // Validasi login
+    const validUsers = {
+      "rnj jakarta": "12345",
+      "rnj cikarang": "231888",
+      "rnj tangerang": "9998715",
+      "rnj depok": "#"
+      "rnj Yogyakarta": "#"
+    };
+
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const user = document.getElementById("username").value.trim().toLowerCase();
+      const pass = document.getElementById("password").value.trim();
+      const errorBox = document.getElementById("error");
+
+      if (validUsers[user] && validUsers[user] === pass) {
+        window.location.href = "pilih-jurusan.html";
+      } else {
+        errorBox.textContent = "Username dan password tidak sesuai, pastikan memasukkan data dengan benar.";
+      }
+    });
+  </script>
+</body>
+</html>
