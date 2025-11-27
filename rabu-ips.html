@@ -1,125 +1,123 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>CBT PAS - Hari Rabu</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f4f7fc;
-      margin: 0;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-    header {
-      background: #005baa;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      border-bottom: 4px solid #ffc107;
-      position: relative;
-      z-index: 1;
-    }
-    header h1 { margin: 0; font-size: 2em; }
-    header p { margin: 5px 0 0; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CBT PAS - Hari Rabu</title>
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f7fc;
+    margin: 0;
+    min-height: 100vh;
+  }
+  header {
+    background: #005baa;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 4px solid #ffc107;
+  }
+  header h1 { margin: 0; font-size: 1.8rem; }
+  header p { margin: 4px 0; }
 
-    main {
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
-      position: relative;
-      z-index: 1;
-    }
+  main {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+  }
+  section { margin-bottom: 35px; }
+  h2 {
+    color: #005baa;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.3rem;
+  }
 
-    section { margin-bottom: 40px; }
-    h2 { color: #005baa; margin-top: 20px; }
+  .card-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-left: 6px solid #005baa;
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  .card h3 {
+    margin: 0 0 10px;
+    color: #005baa;
+    font-size: 1.2rem;
+  }
 
-    .card-group {
-      display: flex;
-      flex-direction: column;
-      align-items: center; /* rata tengah */
-      gap: 20px;
-    }
-    .card {
-      display: inline-block;
-      background: linear-gradient(135deg, #ffffff, #e6f0ff); /* warna lembut */
-      border: 1px solid #ddd;
-      border-left: 6px solid #005baa;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .card h3 { margin-top: 0; color: #005baa; }
+  .btn {
+    display: inline-block;
+    background: #005baa;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  .locked {
+    background: #aaa !important;
+    color: #eee !important;
+    pointer-events: none;
+  }
 
-    .btn {
-      display: inline-block;
-      background: #005baa;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      width: auto; /* sesuai teks */
-      text-align: center;
-    }
-    .btn.locked { background: #aaa; color: #eee; cursor: not-allowed; pointer-events: none; }
+  .pengawas {
+    font-size: 0.85rem;
+    margin-top: 6px;
+    color: #444;
+  }
 
-    .pengawas { font-size: 0.85em; color: #555; margin: 5px 0; }
+  .agama-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .agama-buttons button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    background: #005baa;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .agama-buttons .locked {
+    background: #aaa !important;
+    color: #eee !important;
+  }
 
-    .agama-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      align-items: center;
-    }
-    .agama-buttons button {
-      background: #005baa;
-      color: white;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      width: auto; /* sesuai teks */
-    }
-    .agama-buttons button.locked { background: #aaa; color: #eee; cursor: not-allowed; pointer-events: none; }
+  footer {
+    text-align: center;
+    padding: 15px;
+    background: #f9f9f9;
+    border-top: 2px solid #ffc107;
+    font-size: 0.85rem;
+    color: #444;
+  }
 
-    /* Aurora background */
-    .aurora, .aurora2, .aurora3 {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-    }
-    .aurora {
-      background: radial-gradient(circle at 30% 70%, rgba(102,255,204,0.6), transparent 70%),
-                  radial-gradient(circle at 70% 30%, rgba(102,204,255,0.6), transparent 70%);
-      animation: auroraRotate 15s linear infinite, auroraFade 5s ease-in-out infinite alternate;
-      filter: blur(15px);
-    }
-    .aurora2 {
-      background: radial-gradient(circle at 20% 80%, rgba(255,102,204,0.5), transparent 70%),
-                  radial-gradient(circle at 80% 20%, rgba(204,102,255,0.5), transparent 70%);
-      animation: auroraRotateReverse 18s linear infinite, auroraFade 6s ease-in-out infinite alternate;
-      filter: blur(18px);
-    }
-    .aurora3 {
-      background: radial-gradient(circle at 50% 90%, rgba(0,102,255,0.5), transparent 70%),
-                  radial-gradient(circle at 40% 10%, rgba(0,255,204,0.5), transparent 70%);
-      animation: auroraRotate 20s linear infinite, auroraFade 7s ease-in-out infinite alternate;
-      filter: blur(20px);
-    }
-    @keyframes auroraRotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    @keyframes auroraRotateReverse { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
-    @keyframes auroraFade { from { opacity: 0.4; } to { opacity: 0.9; } }
-  </style>
+  /* MOBILE RESPONSIVE */
+  @media (max-width: 480px) {
+    header h1 { font-size: 1.4rem; }
+    .card { padding: 15px; }
+    h2 { font-size: 1.15rem; }
+    .btn, .agama-buttons button { font-size: 0.9rem; padding: 8px 14px; }
+  }
+</style>
 </head>
 <body>
-
-<div class="aurora"></div>
-<div class="aurora2"></div>
-<div class="aurora3"></div>
 
 <header>
   <h1>CBT PAS - Hari Rabu</h1>
@@ -128,7 +126,6 @@
 </header>
 
 <main>
-  <!-- Kelas X -->
   <section>
     <h2>🧑‍🎓 Kelas X</h2>
     <div class="card-group">
@@ -157,7 +154,6 @@
     </div>
   </section>
 
-  <!-- Kelas XI -->
   <section>
     <h2>🧑‍🎓 Kelas XI</h2>
     <div class="card-group">
@@ -186,7 +182,6 @@
     </div>
   </section>
 
-  <!-- Kelas XII -->
   <section>
     <h2>🧑‍🎓 Kelas XII</h2>
     <div class="card-group">
@@ -195,7 +190,7 @@
         <a id="btn-xii-inggris" href="#" class="btn">Bahasa Inggris</a>
         <p class="pengawas">Pengawas: Asri Dewantoro</p>
       </div>
-            <div class="card">
+      <div class="card">
         <h3>10:00 - 11:00</h3>
         <a id="btn-xii-geografi" href="#" class="btn">Geografi</a>
         <p class="pengawas">Pengawas: Irma Tania</p>
@@ -216,8 +211,8 @@
   </section>
 </main>
 
-<footer style="text-align:center;padding:15px;font-size:0.85em;color:#555;background:#f9f9f9;border-top:2px solid #ffc107;">
-  © PKBM Ristek Nusantara Jaya | TP 2025–2026<br>Desain oleh RNJ Cikarang
+<footer>
+  © PKBM Ristek Nusantara Jaya | TP 2025–2026<br />Desain oleh RNJ Cikarang
 </footer>
 
 <script>
@@ -253,12 +248,8 @@
       if (el) {
         if (soalSettings[id]) {
           el.classList.add("locked");
-          el.setAttribute("href", "#");
-          if (!el.textContent.includes("(Terkunci)")) {
-            el.textContent += " (Terkunci)";
-          }
-        } else {
-          el.classList.remove("locked");
+          if (el.tagName === "A") el.href = "#";
+          if (!el.textContent.includes("(Terkunci)")) el.textContent += " (Terkunci)";
         }
       }
     });
