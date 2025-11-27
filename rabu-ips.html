@@ -33,7 +33,7 @@
     header h1 { font-size:2em; margin:0; font-weight:800; }
     header p { margin:5px 0 0; }
 
-    section { padding:20px; position:relative; z-index:1; }
+    section { padding:20px; position:relative; z-index:1; border-bottom:2px dashed #ccc; }
     h2 { color:#005baa; margin:30px 0 20px; font-size:1.4em; font-weight:700; }
 
     /* Flex grid untuk card */
@@ -68,10 +68,10 @@
     .btn.locked { background:#aaa; color:#eee; cursor:not-allowed; pointer-events:none; }
 
     .pengawas {
-      font-size:0.85em;
+      font-size:0.9em;
       margin-top:8px;
       font-style:italic;
-      color:rgba(255,255,255,0.9);
+      color:#fff; /* lebih kontras */
     }
 
     /* Variasi warna card */
@@ -99,11 +99,11 @@
     @media (max-width:600px) {
       .card-group { flex-direction:column; }
       .card { flex:1 1 100%; font-size:1em; padding:18px; min-height:200px; }
-      .card.agama { min-height:260px; }
+      .card.agama { min-height:280px; }
       .card h3 { font-size:1.05em; }
       .btn { width:100%; text-align:center; }
       .agama-buttons { flex-direction:column; }
-      .agama-buttons a { flex:1 1 100%; font-size:0.95em; padding:12px; }
+      .agama-buttons a { flex:1 1 100%; font-size:1em; padding:14px; }
     }
 
     footer {
@@ -173,11 +173,13 @@
       <a id="btn-xiiips-inggris" href="#" class="btn">Bahasa Inggris</a>
       <p class="pengawas">Pengawas: Arif Darwanto</p>
     </div>
+
     <div class="card geografi">
       <h3>🌍 10:00 - 11:00</h3>
       <a id="btn-xiiips-geografi" href="#" class="btn">Geografi</a>
       <p class="pengawas">Pengawas: Irma Tania</p>
     </div>
+
     <div class="card agama">
       <h3>🙏 11:00 - 12:00</h3>
       <p>Pendidikan Agama:</p>
