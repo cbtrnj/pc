@@ -85,18 +85,18 @@
     justify-content: center;
     margin-top: 10px;
   }
-  .agama-buttons button {
+  .agama-buttons a {
     padding: 8px 14px;
-    border: none;
     border-radius: 6px;
     background: #005baa;
     color: #fff;
     font-weight: bold;
-    cursor: pointer;
+    text-decoration: none;
   }
-  .agama-buttons .locked {
+  .agama-buttons a.locked {
     background: #aaa !important;
     color: #eee !important;
+    pointer-events: none;
   }
 
   footer {
@@ -108,12 +108,11 @@
     color: #444;
   }
 
-  /* MOBILE RESPONSIVE */
   @media (max-width: 480px) {
     header h1 { font-size: 1.4rem; }
     .card { padding: 15px; }
     h2 { font-size: 1.15rem; }
-    .btn, .agama-buttons button { font-size: 0.9rem; padding: 8px 14px; }
+    .btn, .agama-buttons a { font-size: 0.9rem; padding: 8px 14px; }
   }
 </style>
 </head>
@@ -126,6 +125,7 @@
 </header>
 
 <main>
+  <!-- Kelas X -->
   <section>
     <h2>🧑‍🎓 Kelas X</h2>
     <div class="card-group">
@@ -144,16 +144,17 @@
         <p>Pendidikan Agama:</p>
         <p class="pengawas">Pengawas: Camera Aplication CBT</p>
         <div class="agama-buttons">
-          <button id="placeholdersoal.html">Islam</button>
-          <button id="placeholdersoal.html">Kristen</button>
-          <button id="placeholdersoal.html">Katolik</button>
-          <button id="placeholdersoal.html">Hindu</button>
-          <button id="placeholdersoal.html">Budha</button>
+          <a id="btn-x-agama-islam" href="placeholdersoal.html">Islam</a>
+          <a id="btn-x-agama-kristen" href="placeholdersoal.html">Kristen</a>
+          <a id="btn-x-agama-katolik" href="placeholdersoal.html">Katolik</a>
+          <a id="btn-x-agama-hindu" href="placeholdersoal.html">Hindu</a>
+          <a id="btn-x-agama-budha" href="placeholdersoal.html">Budha</a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Kelas XI -->
   <section>
     <h2>🧑‍🎓 Kelas XI</h2>
     <div class="card-group">
@@ -170,18 +171,19 @@
       <div class="card">
         <h3>11:00 - 12:00</h3>
         <p>Pendidikan Agama:</p>
-        <p class="pengawas">Pengawas: Vika Hidayati</p>
+        <p class="pengawas">Pengawas: Irma Tania</p>
         <div class="agama-buttons">
-          <button id="placeholdersoal.html">Islam</button>
-          <button id="placeholdersoal.html">Kristen</button>
-          <button id="placeholdersoal.html">Katolik</button>
-          <button id="placeholdersoal.html">Hindu</button>
-          <button id="placeholdersoal.html">Budha</button>
+          <a id="btn-xi-agama-islam" href="placeholdersoal.html">Islam</a>
+          <a id="btn-xi-agama-kristen" href="placeholdersoal.html">Kristen</a>
+          <a id="btn-xi-agama-katolik" href="placeholdersoal.html">Katolik</a>
+          <a id="btn-xi-agama-hindu" href="placeholdersoal.html">Hindu</a>
+          <a id="btn-xi-agama-budha" href="placeholdersoal.html">Budha</a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Kelas XII -->
   <section>
     <h2>🧑‍🎓 Kelas XII</h2>
     <div class="card-group">
@@ -189,7 +191,7 @@
         <h3>09:00 - 10:00</h3>
         <a id="btn-xii-inggris" href="https://docs.google.com/forms/d/e/1FAIpQLSfvRkqpXUEYEtM5Ld5sXI59GCWPE1AYJzpq66g2FmWg3VoDQg/viewform?usp=header" class="btn">Bahasa Inggris</a>
         <p class="pengawas">Pengawas: Asri Dewantoro</p>
-      </div>
+              </div>
       <div class="card">
         <h3>10:00 - 11:00</h3>
         <a id="btn-xii-geografi" href="https://docs.google.com/forms/d/e/1FAIpQLSfoDA2eqwQT8NbPYuTev03ZKd7EKRA5d77bCrn5kMDybbBPHA/viewform?usp=header" class="btn">Geografi</a>
@@ -200,11 +202,11 @@
         <p>Pendidikan Agama:</p>
         <p class="pengawas">Pengawas: Vika Hidayati</p>
         <div class="agama-buttons">
-          <button id="placeholdersoal.html">Islam</button>
-          <button id="placeholdersoal.html">Kristen</button>
-          <button id="placeholdersoal.html">Katolik</button>
-          <button id="placeholdersoal.html">Hindu</button>
-          <button id="placeholdersoal.html">Budha</button>
+          <a id="btn-xii-agama-islam" href="placeholdersoal.html">Islam</a>
+          <a id="btn-xii-agama-kristen" href="placeholdersoal.html">Kristen</a>
+          <a id="btn-xii-agama-katolik" href="placeholdersoal.html">Katolik</a>
+          <a id="btn-xii-agama-hindu" href="placeholdersoal.html">Hindu</a>
+          <a id="btn-xii-agama-budha" href="placeholdersoal.html">Budha</a>
         </div>
       </div>
     </div>
@@ -217,29 +219,32 @@
 
 <script>
   const soalSettings = {
+    // Kelas X
     "btn-x-inggris": false,
-    "btn-x-geografi": true,
-    "btn-x-agama-islam": true,
-    "btn-x-agama-kristen": true,
-    "btn-x-agama-katolik": true,
-    "btn-x-agama-hindu": true,
-    "btn-x-agama-budha": true,
+    "btn-x-geografi": false,
+    "btn-x-agama-islam": false,
+    "btn-x-agama-kristen": false,
+    "btn-x-agama-katolik": false,
+    "btn-x-agama-hindu": false,
+    "btn-x-agama-budha": false,
 
+    // Kelas XI
     "btn-xi-inggris": false,
-    "btn-xi-geografi": true,
-    "btn-xi-agama-islam": true,
-    "btn-xi-agama-kristen": true,
-    "btn-xi-agama-katolik": true,
-    "btn-xi-agama-hindu": true,
-    "btn-xi-agama-budha": true,
+    "btn-xi-geografi": false,
+    "btn-xi-agama-islam": false,
+    "btn-xi-agama-kristen": false,
+    "btn-xi-agama-katolik": false,
+    "btn-xi-agama-hindu": false,
+    "btn-xi-agama-budha": false,
 
+    // Kelas XII
     "btn-xii-inggris": false,
-    "btn-xii-geografi": true,
-    "btn-xii-agama-islam": true,
-    "btn-xii-agama-kristen": true,
-    "btn-xii-agama-katolik": true,
-    "btn-xii-agama-hindu": true,
-    "btn-xii-agama-budha": true
+    "btn-xii-geografi": false,
+    "btn-xii-agama-islam": false,
+    "btn-xii-agama-kristen": false,
+    "btn-xii-agama-katolik": false,
+    "btn-xii-agama-hindu": false,
+    "btn-xii-agama-budha": false
   };
 
   function applySettings() {
@@ -250,6 +255,8 @@
           el.classList.add("locked");
           if (el.tagName === "A") el.href = "#";
           if (!el.textContent.includes("(Terkunci)")) el.textContent += " (Terkunci)";
+        } else {
+          el.classList.remove("locked");
         }
       }
     });
