@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CBT PAS - Kelas XI</title>
+  <style>
+    body { font-family:'Segoe UI',sans-serif; background:#f4f7fc; margin:0; min-height:100vh; }
+    header { background:#005baa; color:white; padding:20px; text-align:center; border-bottom:4px solid #ffc107; }
+    .card-group { display:flex; flex-wrap:wrap; gap:20px; padding:20px; }
+    .card { border-radius:14px; padding:18px; box-shadow:0 6px 16px rgba(0,0,0,0.08); color:#fff; flex:1 1 260px; transition:transform .3s ease, box-shadow .3s ease; }
+    .card:hover { transform:translateY(-5px); box-shadow:0 10px 24px rgba(0,0,0,0.15); }
+    .card h3 { margin-top:0; font-size:1.1em; font-weight:700; }
+    .btn { display:inline-block; background:rgba(255,255,255,0.9); color:#333; padding:10px 14px; margin-top:10px; border-radius:8px; text-decoration:none; font-weight:bold; transition:background 0.3s ease; }
+    .btn:hover { background:#ffc107; color:#005baa; }
+    .btn.locked { background:#aaa; color:#eee; cursor:not-allowed; pointer-events:none; }
+    .pengawas { font-size:0.85em; margin-top:8px; font-style:italic; color:rgba(255,255,255,0.9); }
+    .card.indonesia { background:linear-gradient(135deg,#ff512f,#f09819); }
+    .card.kimia     { background:linear-gradient(135deg,#43cea2,#185a9d); }
+    .card.fisika    { background:linear-gradient(135deg,#1E90FF,#00BFFF); }
+    .card.seni      { background:linear-gradient(135deg,#f7971e,#ffd200); }
+    footer { text-align:center; padding:20px; font-size:12px; color:#555; background:rgba(255,255,255,0.85); border-top:2px solid #ffc107; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CBT PAS - Kelas XI</h1>
+    <p>PKBM Ristek Nusantara Jaya</p>
+    <p>Tahun Pelajaran 2025/2026</p>
+  </header>
+
+  <section>
+    <h2 style="color:#005baa; padding:0 20px;">🧑‍🎓 Jadwal Kelas XI</h2>
+    <div class="card-group">
+      <div class="card indonesia">
+        <h3>09:00 - 10:00</h3>
+        <a id="btn-xiipa-indonesia" href="https://docs.google.com/forms/d/e/1FAIpQLSc0j9lHaSZ_mGX8bfa4umvxwGW5HisyPxhLGBgihppGAMdJtw/viewform?usp=header" class="btn">Bahasa Indonesia</a>
+        <p class="pengawas">Pengawas: Asri Dewantoro</p>
+      </div>
+      <div class="card kimia">
+        <h3>10:00 - 11:00</h3>
+        <a id="btn-xiipa-kimia" href="https://docs.google.com/forms/d/e/1FAIpQLSeqxO1x6neca8hE9VR1xpHNQoRzLi6IbURK8yqKzVQN24AqEQ/viewform?usp=header" class="btn">Ekonomi</a>
+        <p class="pengawas">Pengawas: Irma Tania</p>
+      </div>
+      <div class="card fisika">
+        <h3>11:00 - 12:00</h3>
+        <a id="btn-xiipa-fisika" href="placeholdersoal.html" class="btn">Sejarah Peminatan</a>
+        <p class="pengawas">Pengawas: Vika Hidayati</p>
+      </div>
+      <div class="card seni">
+        <h3>12:00 - 13:00</h3>
+        <a id="btn-xiipa-seni" href="https://docs.google.com/forms/d/e/1FAIpQLSePYCenqFPqcnfQBta2rJq3kL2leQubQQkKKKmHR6lNoRwyYw/viewform?usp=header" class="btn">Seni Budaya</a>
+        <p class="pengawas">Pengawas: Sri Lestiana</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © PKBM Ristek Nusantara Jaya | TP 2025–2026<br>Desain oleh RNJ Cikarang
+  </footer>
+
+  <script>
+    // KONFIG PENGUNCI: true = terkunci, false = terbuka
+    const soalSettings = {
+      "btn-xiipa-indonesia": false,
+      "btn-xiipa-kimia": false,
+      "btn-xiipa-fisika": false,
+      "btn-xiipa-seni": false
+    };
+
+    function applySettings(){
+      Object.keys(soalSettings).forEach(id=>{
+        const btn=document.getElementById(id);
+        if(!btn) return;
+        if(soalSettings[id]===true){
+          btn.classList.add("locked");
+          btn.dataset.href = btn.getAttribute("href"); // simpan link asli
+          btn.setAttribute("href","#");                // blok klik
+          if(!btn.textContent.includes("(Terkunci)")){
+            btn.textContent += " (Terkunci)";
+          }
+        } else {
+          btn.classList.remove("locked");
+          if(btn.dataset.href){ btn.setAttribute("href", btn.dataset.href); }
+          btn.textContent = btn.textContent.replace(" (Terkunci)","");
+        }
+      });
+    }
+    applySettings();
+  </script>
+</body>
+</html>
