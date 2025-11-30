@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CBT PAS - Pilih Kelas</title>
+  <style>
+    body { font-family:'Segoe UI',sans-serif; background:#f4f7fc; margin:0; min-height:100vh; }
+    header { background:#005baa; color:white; padding:20px; text-align:center; border-bottom:4px solid #ffc107; }
+    header h1 { margin:0; }
+    .kelas-menu { text-align:center; margin:20px; }
+    .kelas-menu button {
+      background:#005baa; color:white; border:none; padding:10px 20px;
+      margin:5px; border-radius:8px; cursor:pointer; font-weight:bold;
+      transition:0.3s;
+    }
+    .kelas-menu button:hover { background:#ffc107; color:#005baa; }
+
+    section { display:none; padding:20px; }
+    h2 { color:#005baa; }
+    .card-group { display:flex; flex-wrap:wrap; gap:20px; }
+    .card { border-radius:14px; padding:18px; box-shadow:0 6px 16px rgba(0,0,0,0.08); color:#fff; flex:1 1 260px; }
+    .card h3 { margin-top:0; }
+    .btn { display:inline-block; background:rgba(255,255,255,0.9); color:#333; padding:10px 14px; margin-top:10px; border-radius:8px; text-decoration:none; font-weight:bold; }
+    .btn:hover { background:#ffc107; color:#005baa; }
+    .pengawas { font-size:0.85em; margin-top:8px; font-style:italic; color:rgba(255,255,255,0.9); }
+
+    /* Warna kotak */
+    .card.indonesia { background:linear-gradient(135deg,#ff512f,#f09819); }
+    .card.kimia     { background:linear-gradient(135deg,#43cea2,#185a9d); }
+    .card.fisika    { background:linear-gradient(135deg,#1E90FF,#00BFFF); }
+    .card.seni      { background:linear-gradient(135deg,#f7971e,#ffd200); }
+
+    footer{text-align:center;padding:20px;font-size:12px;color:#555;background:rgba(255,255,255,0.85);border-top:2px solid #ffc107;}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>CBT PAS - Pilih Kelas</h1>
+  <p>PKBM Ristek Nusantara Jaya</p>
+  <p>Tahun Pelajaran 2025/2026</p>
+</header>
+
+<div class="kelas-menu">
+  <button onclick="showKelas('kelasX')">Kelas X</button>
+  <button onclick="showKelas('kelasXI')">Kelas XI</button>
+  <button onclick="showKelas('kelasXII')">Kelas XII</button>
+</div>
+
+<!-- Ruang Kelas X -->
+<section id="kelasX">
+  <h2>🧑‍🎓 Kelas X</h2>
+  <div class="card-group">
+    <div class="card indonesia"><h3>09:00 - 10:00</h3><a href="#" class="btn">Bahasa Indonesia</a><p class="pengawas">Pengawas: Camera Aplication CBT</p></div>
+    <div class="card kimia"><h3>10:00 - 11:00</h3><a href="#" class="btn">Ekonomi</a><p class="pengawas">Pengawas: Camera Aplication CBT</p></div>
+    <div class="card fisika"><h3>11:00 - 12:00</h3><a href="#" class="btn">Sejarah Peminatan</a><p class="pengawas">Pengawas: Camera Aplication CBT</p></div>
+    <div class="card seni"><h3>12:00 - 13:00</h3><a href="#" class="btn">Seni Budaya</a><p class="pengawas">Pengawas: Camera Aplication CBT</p></div>
+  </div>
+</section>
+
+<!-- Ruang Kelas XI -->
+<section id="kelasXI">
+  <h2>🧑‍🎓 Kelas XI</h2>
+  <div class="card-group">
+    <div class="card indonesia"><h3>09:00 - 10:00</h3><a href="#" class="btn">Bahasa Indonesia</a><p class="pengawas">Pengawas: Asri Dewantoro</p></div>
+    <div class="card kimia"><h3>10:00 - 11:00</h3><a href="#" class="btn">Ekonomi</a><p class="pengawas">Pengawas: Irma Tania</p></div>
+    <div class="card fisika"><h3>11:00 - 12:00</h3><a href="#" class="btn">Sejarah Peminatan</a><p class="pengawas">Pengawas: Vika Hidayati</p></div>
+    <div class="card seni"><h3>12:00 - 13:00</h3><a href="#" class="btn">Seni Budaya</a><p class="pengawas">Pengawas: Sri Lestiana</p></div>
+  </div>
+</section>
+
+<!-- Ruang Kelas XII -->
+<section id="kelasXII">
+  <h2>🧑‍🎓 Kelas XII</h2>
+  <div class="card-group">
+    <div class="card indonesia"><h3>09:00 - 10:00</h3><a href="#" class="btn">Bahasa Indonesia</a><p class="pengawas">Pengawas: Asri Dewantoro</p></div>
+    <div class="card kimia"><h3>10:00 - 11:00</h3><a href="#" class="btn">Ekonomi</a><p class="pengawas">Pengawas: Irma Tania</p></div>
+    <div class="card fisika"><h3>11:00 - 12:00</h3><a href="#" class="btn">Sejarah Peminatan</a><p class="pengawas">Pengawas: Vika Hidayati</p></div>
+    <div class="card seni"><h3>12:00 - 13:00</h3><a href="#" class="btn">Seni Budaya</a><p class="pengawas">Pengawas: Sri Lestiana</p></div>
+  </div>
+</section>
+
+<footer>
+  © PKBM Ristek Nusantara Jaya | TP 2025–2026<br>Desain oleh RNJ Cikarang
+</footer>
+
+<script>
+  function showKelas(id){
+    // sembunyikan semua section
+    document.querySelectorAll("section").forEach(sec => sec.style.display="none");
+    // tampilkan section sesuai pilihan
+    document.getElementById(id).style.display="block";
+  }
+</script>
+
+</body>
+</html>
